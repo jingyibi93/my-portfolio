@@ -479,9 +479,19 @@ export function ProjectDetail({ project, onClose, isPlaying = false, onMusicTogg
                   </div>
                   <div className="flex justify-between items-baseline border-b border-dotted border-stone-150 dark:border-zinc-800 pb-0.5">
                     <span className="font-extrabold text-[#1A1A1A] dark:text-zinc-350 shrink-0">
-                      {(project.id === 'summer-lotus-reflection' || project.id === 'snowy-night-light') ? "MEDIUM //" : (project.category?.toLowerCase() === 'art' || project.id === 'sound-map') ? "INSTRUCTOR //" : "PLOT //"}
+                      {['joints', 'museum-island', 'hub', 'zootopia', 'diverse-city'].includes(project.id)
+                        ? "ADVISOR //"
+                        : (project.id === 'summer-lotus-reflection' || project.id === 'snowy-night-light')
+                        ? "MEDIUM //"
+                        : (project.category?.toLowerCase() === 'art' || project.id === 'sound-map')
+                        ? "INSTRUCTOR //"
+                        : "PLOT //"}
                     </span>
-                    <span className="text-right ml-4 max-w-[75%] font-medium text-stone-700 dark:text-zinc-300 break-words leading-tight">{cleanChineseFromField(project.areaDetails || "PLOT AREA: N/A", isArtCategory)}</span>
+                    <span className="text-right ml-4 max-w-[75%] font-medium text-stone-700 dark:text-zinc-300 break-words leading-tight">
+                      {['joints', 'museum-island', 'hub', 'zootopia', 'diverse-city'].includes(project.id)
+                        ? cleanChineseFromField(project.areaDetails?.replace(/^ADVISOR:\s*/i, '') || "N/A", isArtCategory)
+                        : cleanChineseFromField(project.areaDetails || "PLOT AREA: N/A", isArtCategory)}
+                    </span>
                   </div>
                   <div className="flex justify-between items-baseline border-b border-dotted border-stone-150 dark:border-zinc-800 pb-0.5">
                     <span className="font-extrabold text-[#1A1A1A] dark:text-zinc-350 shrink-0">ROLE //</span>
