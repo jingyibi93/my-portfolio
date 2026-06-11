@@ -1,0 +1,6 @@
+{
+  "name": "Minimalist Cabinet Drawer Portfolio",
+  "description": "A minimalist gallery-inspired portfolio presenting Objects, Images, Fragments, Notes, and Experiments via interactive table drawers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
