@@ -513,6 +513,32 @@ export const INITIAL_PROJECTS: Project[] = [
     designStatementEN: "This project at Harvard GSD, in collaboration with Xin Zheng and guided by Krzysztof Wodiczko, explores the tactile materialization and mapping of environmental soundwaves. By converting spatial audios into responsive visual metrics and multi-axis topographies, we build interactive acoustic cartographies.",
     designStatementCN: "项目为哈佛大学GSD学术设计课题，在Krzysztof Wodiczko指导下与Xin Zheng合作完成。设计探究声音在大气与建筑实体中的微弱震荡与传播边界，通过多轴物理测绘与可视化投影技术，将空间环境中的隐性音频流动转译为直观可触的声波地貌与声音地图。"
   },
+  {
+    id: "cabinet-of-curiosities",
+    title: "CABINET OF CURIOSITIES / 艺术馆抽屉与珍奇异宝网阁",
+    category: "Tech",
+    year: "2026",
+    client: "Individual",
+    description: "本网页设计作品以“艺术馆抽屉”为概念，将个人作品按照类别分门别类地陈列在虚拟展柜中。访客可以通过拉开不同的抽屉，探索每个分类下的作品，体验如同在真实艺术馆中逐一发现展品的趣味与惊喜。设计强调互动与探索感，同时保持整体空间的简洁与沉浸感。",
+    fullDetails: "This web design project is based on the concept of “gallery drawers,” where personal works are organized and displayed in virtual exhibition cabinets by category. Visitors can open different drawers to explore each collection, creating an experience akin to discovering exhibits one by one in a real art gallery. The design emphasizes interactivity and exploration while maintaining a clean and immersive spatial environment.\n\n本网页设计作品以“艺术馆抽屉”为概念，将个人作品按照类别分门别类地陈列在虚拟展柜中。访客可以通过拉开不同的抽屉，探索每个分类下的作品，体验如同在真实艺术馆中逐一发现展品的趣味与惊喜。设计强调互动与探索感，同时保持整体空间的简洁与沉浸感。",
+    thumbnail: "https://i.postimg.cc/cL4Fy0TL/Screen-Shot-2026-06-11-113414-986.jpg",
+    gallery: [
+      "https://i.postimg.cc/cL4Fy0TL/Screen-Shot-2026-06-11-113414-986.jpg"
+    ],
+    tags: ["Web Design", "Vibe Coding", "艺术馆抽屉", "交互设计", "虚拟展柜"],
+    accentColor: "#0f766e",
+    videoUrl: "https://www.bilibili.com/video/BV1aiEY6aEtj/?spm_id_from=333.1387.homepage.video_card.click",
+    
+    subtitle: "Web Design/Vibe Coding",
+    projectType: "Web Design / Vibe Coding",
+    areaDetails: "Individual / Shanghai",
+    role: "Creator",
+    dateRange: "06/2026",
+    location: "Shanghai",
+    contribution: "Concept Design, Interactive & Frontend Web Development",
+    designStatementEN: "This web design project is based on the concept of “gallery drawers,” where personal works are organized and displayed in virtual exhibition cabinets by category. Visitors can open different drawers to explore each collection, creating an experience akin to discovering exhibits one by one in a real art gallery. The design emphasizes interactivity and exploration while maintaining a clean and immersive spatial environment.",
+    designStatementCN: "本网页设计作品以“艺术馆抽屉”为概念，将个人作品按照类别分门别类地陈列在虚拟展柜中。访客可以通过拉开不同的抽屉，探索每个分类下的作品，体验如同在真实艺术馆中逐一发现展品的趣味与惊喜。设计强调互动与探索感，同时保持整体空间的简洁与沉浸感。"
+  },
 
   // ==================== NOTES ====================
   {

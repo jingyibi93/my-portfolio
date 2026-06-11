@@ -640,7 +640,7 @@ export default function App() {
                     视觉与表达 // Vis
                   </span>
                   <span className="text-stone-700 dark:text-zinc-350 font-sans mt-1">
-                    Photoshop · Illustrator · InDesign<br/>
+                    Figma · Photoshop · Illustrator · InDesign<br/>
                     Lightroom<br/>
                     Enscape · V-Ray · Twinmotion
                   </span>
@@ -651,7 +651,7 @@ export default function App() {
                     数字与新媒介 // Interactive
                   </span>
                   <span className="text-stone-700 dark:text-zinc-350 font-sans mt-1">
-                    Touchdesigner · AIGC
+                    Touchdesigner · AIGC(Midjourney, Nano Banana, Runway, Pika……) · AI coding tool(ChatGPT, Gemini, Coze, Codex……）
                   </span>
                 </div>
 

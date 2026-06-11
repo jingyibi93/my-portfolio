@@ -1,6 +1,8 @@
 {
-  "name": "Rotary Bookmarks",
+  "name": "Remix: Rotary Bookmarks",
   "description": "A minimalist personal portfolio featuring a 3D rotating bookmark selector that pauses on hover and opens project details.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
