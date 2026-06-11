@@ -3345,9 +3345,6 @@ export default function GallerySpace({
                           <h2 className="text-xl font-bold text-stone-900 mt-2">
                             {isEn ? selectedBooklet.titleEn : selectedBooklet.titleZh}
                           </h2>
-                          <h3 className="text-xs font-sans italic font-bold text-stone-500 mt-0.5">
-                            {isEn ? selectedBooklet.subEn : selectedBooklet.subZh}
-                          </h3>
                         </div>
                         
                         {/* Close manual */}

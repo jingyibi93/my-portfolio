@@ -468,10 +468,7 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
           <div className="h-full flex flex-col">
             <div className="flex items-center justify-between pb-3 border-b border-black/10 select-none">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-[#B33E2B]" />
-                <h3 className="font-serif font-black text-lg sm:text-xl text-stone-900 tracking-tight">
-                  {isEn ? "Visitor Archives" : "访客墨迹馆阁"}
-                </h3>
+                {/* Header title and icon removed per user intent */}
               </div>
               
               {/* Close Button on Desktop */}
