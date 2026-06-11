@@ -489,15 +489,15 @@ export const FRAGMENTS_DATA: FragmentItem[] = [
 export const NOTES_DATA: NoteItem[] = [
   {
     id: 'note-1',
-    category: 'MIMICRY ｜ 拟态',
+    category: 'Advertisment Design/AIGC',
     titleZh: '山茶花手机壳',
     titleEn: 'CAMELLIA PHONE CASE',
     date: '2026.06',
     readTime: 'Video ｜ 5 min',
-    descriptionZh: '生成式触觉影像《山茶花手机壳》',
-    descriptionEn: 'Camellia Phone Case - AI Film',
-    contentZh: '生成式触觉影像《山茶花手机壳》，展现了在算法共同演化时的物性生成与拟态重构。在粗砺物质与柔软虚空之间搭建触觉的连通器。\n\n作品灵感来自于在现实社会的无机粗糙实物（如陶石、曲木、混凝土）与智能设备显示屏柔和、灵敏、流体性的数码动态交互之间，寻找一个能够建立起“物理体温”共振的中介。',
-    contentEn: 'Camellia Phone Case is an interactive media work exploring computational evolution of tactile surfaces.\n\nThis piece bridges rugged physical concrete structures with digital screen fluidity, searching for tactile warmth and physical resonance in virtual environments.',
+    descriptionZh: '生成式影像《山茶花手机壳》',
+    descriptionEn: 'Generative Film "Camellia Phone Case"',
+    contentZh: '生成式影像《山茶花手机壳》。',
+    contentEn: 'Generative Film "Camellia Phone Case".',
     image: 'https://i.postimg.cc/63Cz8Cwr/1.png',
     videoUrl: 'https://www.bilibili.com/video/BV1S4Ew6METQ?t=0'
   },
