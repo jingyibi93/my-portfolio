@@ -2919,15 +2919,31 @@ export default function GallerySpace({
                             <h2 className="text-sm font-bold tracking-wider text-stone-800 border-b border-stone-200 pb-1 mb-4 uppercase">
                               HONOR
                             </h2>
-                            <ul className="space-y-3 text-[11px] text-stone-600 pl-4 list-disc font-sans">
-                              <li>
-                                <span className="font-bold text-stone-900">2016  &nbsp;|&nbsp; Fujian, China</span> — School Merit Award, in recognition of comprehensive performance
+                            <ul className="space-y-3 text-[11px] text-stone-600 font-sans">
+                              <li className="flex justify-between items-baseline gap-4">
+                                <div className="flex items-start gap-2">
+                                  <span className="w-1 h-1 rounded-full bg-stone-400 mt-[5.5px] shrink-0" />
+                                  <span>
+                                    <span className="font-bold text-stone-900">2016</span> — School Merit Award, in recognition of comprehensive performance
+                                  </span>
+                                </div>
+                                <span className="text-xs font-bold text-stone-900 shrink-0 text-right">Fujian, China</span>
                               </li>
-                              <li>
-                                <span className="font-bold text-stone-900">2013-2015</span> — First Prize of Merit Academic Scholarship for THREE years
+                              <li className="flex justify-between items-baseline gap-4">
+                                <div className="flex items-start gap-2">
+                                  <span className="w-1 h-1 rounded-full bg-stone-400 mt-[5.5px] shrink-0" />
+                                  <span>
+                                    <span className="font-bold text-stone-900">2013-2015</span> — First Prize of Merit Academic Scholarship for THREE years
+                                  </span>
+                                </div>
                               </li>
-                              <li>
-                                <span className="font-bold text-stone-900">2014-2015</span> — Merit Student of Architecture School for TWO years
+                              <li className="flex justify-between items-baseline gap-4">
+                                <div className="flex items-start gap-2">
+                                  <span className="w-1 h-1 rounded-full bg-stone-400 mt-[5.5px] shrink-0" />
+                                  <span>
+                                    <span className="font-bold text-stone-900">2014-2015</span> — Merit Student of Architecture School for TWO years
+                                  </span>
+                                </div>
                               </li>
                             </ul>
                           </div>
@@ -3257,15 +3273,31 @@ export default function GallerySpace({
                             <h2 className="text-sm font-bold tracking-wider text-stone-800 border-b border-stone-200 pb-1 mb-4 uppercase">
                               荣誉
                             </h2>
-                            <ul className="space-y-3 text-[11px] text-stone-600 pl-4 list-disc font-sans">
-                              <li>
-                                <span className="font-bold text-stone-900">2016  &nbsp;|&nbsp; 福建，中国</span> — 华侨大学理工科综合成绩优秀学生
+                            <ul className="space-y-3 text-[11px] text-stone-600 font-sans">
+                              <li className="flex justify-between items-baseline gap-4">
+                                <div className="flex items-start gap-2">
+                                  <span className="w-1 h-1 rounded-full bg-stone-400 mt-[5.5px] shrink-0" />
+                                  <span>
+                                    <span className="font-bold text-stone-900">2016</span> — 华侨大学理工科综合成绩优秀学生
+                                  </span>
+                                </div>
+                                <span className="text-xs font-bold text-stone-900 shrink-0 text-right">福建，中国</span>
                               </li>
-                              <li>
-                                <span className="font-bold text-stone-900">2013-2015</span> — 连续三年获得华侨大学校一等奖学金
+                              <li className="flex justify-between items-baseline gap-4">
+                                <div className="flex items-start gap-2">
+                                  <span className="w-1 h-1 rounded-full bg-stone-400 mt-[5.5px] shrink-0" />
+                                  <span>
+                                    <span className="font-bold text-stone-900">2013-2015</span> — 连续三年获得华侨大学校一等奖学金
+                                  </span>
+                                </div>
                               </li>
-                              <li>
-                                <span className="font-bold text-stone-900">2014-2015</span> — 连续两年获得华侨大学建筑学院优秀学生
+                              <li className="flex justify-between items-baseline gap-4">
+                                <div className="flex items-start gap-2">
+                                  <span className="w-1 h-1 rounded-full bg-stone-400 mt-[5.5px] shrink-0" />
+                                  <span>
+                                    <span className="font-bold text-stone-900">2014-2015</span> — 连续两年获得华侨大学建筑学院优秀学生
+                                  </span>
+                                </div>
                               </li>
                             </ul>
                           </div>
