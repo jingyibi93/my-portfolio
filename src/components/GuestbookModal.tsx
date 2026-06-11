@@ -55,6 +55,7 @@ interface Message {
   inkColor: string;
   stamp: string;
   timestamp: string;
+  visitorId: string;
 }
 
 interface GuestbookModalProps {
@@ -79,7 +80,8 @@ const DEFAULT_MESSAGES: Message[] = [
     content: 'Penny, your touch-resistive metal drawers are a wunderkammer. A profound critique of our sterile slab screen age! Splendid spatial work.',
     inkColor: '#102A43',
     stamp: '✨',
-    timestamp: '2026-06-08'
+    timestamp: '2026-06-08',
+    visitorId: 'system-seed'
   },
   {
     id: 'm2',
@@ -87,7 +89,8 @@ const DEFAULT_MESSAGES: Message[] = [
     content: '这套关于“数字物性与触感界面”的数字画廊做的太妙了，互动非常有拉力和重感，一下子想起了我们在伦敦工坊敲木头布展的日子。',
     inkColor: '#9C2B2A',
     stamp: '🎨',
-    timestamp: '2026-06-09'
+    timestamp: '2026-06-09',
+    visitorId: 'system-seed'
   },
   {
     id: 'm3',
@@ -95,7 +98,8 @@ const DEFAULT_MESSAGES: Message[] = [
     content: 'Exquisite physical-digital hybrid design. The tension between wood cabinetry and modern pixel archives feels extremely tactile and satisfying.',
     inkColor: '#1C3D27',
     stamp: '☕️',
-    timestamp: '2026-05-28'
+    timestamp: '2026-05-28',
+    visitorId: 'system-seed'
   },
   {
     id: 'm4',
@@ -103,7 +107,8 @@ const DEFAULT_MESSAGES: Message[] = [
     content: 'Le sens du toucher... Penny capturing gravity and resistance in a purely virtual gallery is a beautiful poem. Bravo!',
     inkColor: '#2A2928',
     stamp: '🌸',
-    timestamp: '2026-05-15'
+    timestamp: '2026-05-15',
+    visitorId: 'system-seed'
   }
 ];
 
@@ -115,6 +120,27 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
   const [selectedStamp, setSelectedStamp] = useState('🌸');
   const [isSuccess, setIsSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [visitorId, setVisitorId] = useState<string>('');
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [showAdminInput, setShowAdminInput] = useState(false);
+  const [adminCodeInput, setAdminCodeInput] = useState('');
+  const [clickCount, setClickCount] = useState(0);
+  const [adminInputError, setAdminInputError] = useState(false);
+
+  // Initialize or retrieve persistent client-side visitor id on component load
+  useEffect(() => {
+    let vid = localStorage.getItem('penny_visitor_id');
+    if (!vid) {
+      vid = `v-${Math.random().toString(36).substring(2, 11)}-${Date.now()}`;
+      localStorage.setItem('penny_visitor_id', vid);
+    }
+    setVisitorId(vid);
+
+    const adminSaved = localStorage.getItem('penny_portfolio_admin_active');
+    if (adminSaved === 'true') {
+      setIsAdmin(true);
+    }
+  }, []);
 
   // Load and enrich messages with data from Firestore
   useEffect(() => {
@@ -135,7 +161,8 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
             content: data.content || '',
             inkColor: data.inkColor || '#2A2928',
             stamp: data.stamp || '🌸',
-            timestamp: data.timestamp || ''
+            timestamp: data.timestamp || '',
+            visitorId: data.visitorId || 'system-seed'
           });
         });
 
@@ -147,7 +174,8 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
               content: msg.content,
               inkColor: msg.inkColor,
               stamp: msg.stamp,
-              timestamp: msg.timestamp
+              timestamp: msg.timestamp,
+              visitorId: msg.visitorId
             });
             fbMessages.push(msg);
           }
@@ -200,6 +228,7 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
     e.preventDefault();
     if (!name.trim() || !content.trim()) return;
 
+    const currentVid = visitorId || localStorage.getItem('penny_visitor_id') || 'system-seed';
     const newId = `msg-${Date.now()}`;
     const newMsg: Message = {
       id: newId,
@@ -207,7 +236,8 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
       content: content.trim().slice(0, 500),
       inkColor: selectedInk,
       stamp: selectedStamp,
-      timestamp: new Date().toISOString().split('T')[0]
+      timestamp: new Date().toISOString().split('T')[0],
+      visitorId: currentVid
     };
 
     const updated = [newMsg, ...messages];
@@ -226,13 +256,44 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
         content: newMsg.content,
         inkColor: newMsg.inkColor,
         stamp: newMsg.stamp,
-        timestamp: newMsg.timestamp
+        timestamp: newMsg.timestamp,
+        visitorId: newMsg.visitorId
       });
     } catch (error) {
       console.error("Failed to write to Firestore:", error);
       try {
         handleFirestoreError(error, OperationType.WRITE, `messages/${newId}`);
       } catch (err) {}
+    }
+  };
+
+  const handleFooterClick = () => {
+    if (isAdmin) {
+      setIsAdmin(false);
+      localStorage.removeItem('penny_portfolio_admin_active');
+      return;
+    }
+    const nextCount = clickCount + 1;
+    setClickCount(nextCount);
+    if (nextCount >= 3) {
+      setShowAdminInput(true);
+      setClickCount(0);
+    }
+  };
+
+  const handleAdminSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const normalized = adminCodeInput.trim().toLowerCase();
+    if (normalized === 'penny2026' || normalized === 'pennyadmin' || normalized === 'gravity2026') {
+      setIsAdmin(true);
+      localStorage.setItem('penny_portfolio_admin_active', 'true');
+      setShowAdminInput(false);
+      setAdminCodeInput('');
+      setAdminInputError(false);
+    } else {
+      setAdminInputError(true);
+      setAdminCodeInput('');
+      setTimeout(() => setAdminInputError(false), 1500);
     }
   };
 
@@ -466,20 +527,49 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
                     </p>
 
                     {/* Delete comment button */}
-                    <button
-                      onClick={() => handleDelete(msg.id)}
-                      className="absolute bottom-2.5 right-2.5 p-1.5 rounded-md border border-stone-200 hover:border-red-500/30 bg-white/90 hover:bg-red-50 text-stone-400 hover:text-red-500 transition-all cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 shadow-xs z-10"
-                      title={isEn ? "Delete this message" : "删除留言"}
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
+                    {(msg.visitorId === visitorId || isAdmin) && (
+                      <button
+                        onClick={() => handleDelete(msg.id)}
+                        className="absolute bottom-2.5 right-2.5 p-1.5 rounded-md border border-stone-200 hover:border-red-500/30 bg-white/90 hover:bg-red-50 text-stone-400 hover:text-red-500 transition-all cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 shadow-xs z-10"
+                        title={isEn ? "Delete this message" : "删除留言"}
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    )}
                   </motion.div>
                 ))
               )}
             </div>
             
             <div className="border-t border-black/5 pt-3 select-none text-[9px] font-mono text-center text-stone-400 uppercase tracking-[0.2em] mt-2">
-              {isEn ? "● ALL RIGHTS RESERVED | PENNY ART GALLERY JOURNAL" : "● 藏画笔墨珍存 | 艺术画廊留言访本"}
+              {showAdminInput ? (
+                <form onSubmit={handleAdminSubmit} className="flex items-center justify-center gap-2 max-w-xs mx-auto">
+                  <input
+                    type="password"
+                    placeholder={adminInputError ? (isEn ? "WRONG CODE!" : "密匙有误！") : (isEn ? "SECRET KEY..." : "管理密匙...")}
+                    value={adminCodeInput}
+                    onChange={(e) => setAdminCodeInput(e.target.value)}
+                    className={`w-32 bg-white px-2 py-0.5 text-[8px] rounded border focus:outline-none text-stone-900 text-center font-mono placeholder:font-mono ${
+                      adminInputError ? 'border-red-500 bg-red-50 text-red-600' : 'border-stone-300 focus:border-black'
+                    }`}
+                  />
+                  <button type="submit" className="text-[8px] font-mono hover:text-black uppercase tracking-wider px-2 py-0.5 border border-stone-300 rounded bg-stone-100 hover:bg-white text-stone-600 transition-colors pointer-events-auto cursor-pointer">
+                    {isEn ? "DO" : "确认"}
+                  </button>
+                  <button type="button" onClick={() => setShowAdminInput(false)} className="text-[8px] font-mono hover:text-black uppercase tracking-wider px-2 py-0.5 border border-stone-300 rounded bg-stone-100 hover:bg-white text-stone-600 transition-colors pointer-events-auto cursor-pointer">
+                    {isEn ? "ESC" : "退出"}
+                  </button>
+                </form>
+              ) : (
+                <div 
+                  onClick={handleFooterClick}
+                  className="cursor-pointer hover:text-stone-700 transition-colors flex items-center justify-center gap-2 select-none"
+                  title={isEn ? "Click 3 times to authenticate" : "连击三次进入管理"}
+                >
+                  <span>{isEn ? "● ALL RIGHTS RESERVED | PENNY ART GALLERY JOURNAL" : "● 藏画笔墨珍存 | 艺术画廊留言访本"}</span>
+                  {isAdmin && <span className="text-red-700 font-bold font-mono text-[9px] hover:underline cursor-pointer select-none"> [ADMIN ACTIVE]</span>}
+                </div>
+              )}
             </div>
           </div>
         </div>

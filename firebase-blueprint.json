@@ -28,6 +28,10 @@
         "timestamp": {
           "type": "string",
           "description": "Yyyy-MM-dd formatted date string of the comment"
+        },
+        "visitorId": {
+          "type": "string",
+          "description": "A persistent unique ID generated per visitor browser to allow deleting own messages"
         }
       },
       "required": [
@@ -35,7 +39,8 @@
         "content",
         "inkColor",
         "stamp",
-        "timestamp"
+        "timestamp",
+        "visitorId"
       ]
     }
   },
