@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { X, PenTool, Sparkles, Send, Check } from 'lucide-react';
+import { X, PenTool, Sparkles, Send, Check, Trash2 } from 'lucide-react';
 
 interface Message {
   id: string;
@@ -120,6 +120,12 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
     setContent('');
     setIsSuccess(true);
     setTimeout(() => setIsSuccess(false), 2500);
+  };
+
+  const handleDelete = (id: string) => {
+    const updated = messages.filter(msg => msg.id !== id);
+    setMessages(updated);
+    localStorage.setItem('penny_guestbook_messages', JSON.stringify(updated));
   };
 
   return (
@@ -310,7 +316,7 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
                     className="relative p-4 rounded-md border-[2px] border-black/10 bg-[#faf8f2] shadow-[3px_3px_0_rgba(0,0,0,0.04)] hover:shadow-[3px_3px_0_rgba(0,0,0,0.08)] hover:border-black/20 transition-all flex flex-col gap-2 group"
                   >
                     {/* Big Stamp Sticker */}
-                    <div className="absolute right-3 top-3 text-2xl select-none opacity-40 group-hover:opacity-85 group-hover:scale-110 transition-all duration-300 transform rotate-12">
+                    <div className="absolute right-3 top-3 text-2xl select-none opacity-40 group-hover:opacity-85 group-hover:scale-110 transition-all duration-300 transform rotate-12 pointer-events-none">
                       {msg.stamp || '🌸'}
                     </div>
 
@@ -325,11 +331,20 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
                     </div>
 
                     <p 
-                      className="text-xs leading-relaxed font-sans font-medium whitespace-pre-wrap select-text break-words pr-4"
+                      className="text-xs leading-relaxed font-sans font-medium whitespace-pre-wrap select-text break-words pr-8 pb-1.5"
                       style={{ color: msg.inkColor }}
                     >
                       {msg.content}
                     </p>
+
+                    {/* Delete comment button */}
+                    <button
+                      onClick={() => handleDelete(msg.id)}
+                      className="absolute bottom-2.5 right-2.5 p-1.5 rounded-md border border-stone-200 hover:border-red-500/30 bg-white/90 hover:bg-red-50 text-stone-400 hover:text-red-500 transition-all cursor-pointer opacity-0 group-hover:opacity-100 focus:opacity-100 shadow-xs z-10"
+                      title={isEn ? "Delete this message" : "删除留言"}
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
                   </motion.div>
                 ))
               )}
