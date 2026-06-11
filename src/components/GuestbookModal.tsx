@@ -1,6 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { X, PenTool, Sparkles, Send, Check, Trash2 } from 'lucide-react';
+import { collection, getDocs, doc, setDoc, deleteDoc, query, orderBy } from 'firebase/firestore';
+import { db } from '../lib/firebase';
+
+enum OperationType {
+  CREATE = 'create',
+  UPDATE = 'update',
+  DELETE = 'delete',
+  LIST = 'list',
+  GET = 'get',
+  WRITE = 'write',
+}
+
+interface FirestoreErrorInfo {
+  error: string;
+  operationType: OperationType;
+  path: string | null;
+  authInfo: {
+    userId?: string | null;
+    email?: string | null;
+    emailVerified?: boolean | null;
+    isAnonymous?: boolean | null;
+    tenantId?: string | null;
+    providerInfo?: {
+      providerId?: string | null;
+      email?: string | null;
+    }[];
+  };
+}
+
+function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
+  const errInfo: FirestoreErrorInfo = {
+    error: error instanceof Error ? error.message : String(error),
+    authInfo: {
+      userId: null,
+      email: null,
+      emailVerified: null,
+      isAnonymous: null,
+      tenantId: null,
+      providerInfo: []
+    },
+    operationType,
+    path
+  };
+  console.error('Firestore Error: ', JSON.stringify(errInfo));
+  throw new Error(JSON.stringify(errInfo));
+}
 
 interface Message {
   id: string;
@@ -68,42 +114,95 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
   const [selectedInk, setSelectedInk] = useState('#2A2928');
   const [selectedStamp, setSelectedStamp] = useState('🌸');
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Load and enrich messages with default data if empty
+  // Load and enrich messages with data from Firestore
   useEffect(() => {
-    const saved = localStorage.getItem('penny_guestbook_messages');
-    if (saved) {
+    if (!isOpen) return;
+
+    let isMounted = true;
+    const fetchMessages = async () => {
+      setIsLoading(true);
       try {
-        const parsed = JSON.parse(saved);
-        const migrated = parsed.map((item: any) => {
-          if (item.id === 'm2' && (item.name.includes('Xiao Wei') || item.content.includes('毕毕！'))) {
-            return {
-              ...item,
-              name: 'Xin Xin',
-              content: '这套关于“数字物性与触感界面”的数字画廊做的太妙了，互动非常有拉力和重感，一下子想起了我们在伦敦工坊敲木头布展的日子。'
-            };
-          }
-          return item;
+        const q = query(collection(db, 'messages'), orderBy('timestamp', 'desc'));
+        const querySnapshot = await getDocs(q);
+        const fbMessages: Message[] = [];
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          fbMessages.push({
+            id: doc.id,
+            name: data.name || '',
+            content: data.content || '',
+            inkColor: data.inkColor || '#2A2928',
+            stamp: data.stamp || '🌸',
+            timestamp: data.timestamp || ''
+          });
         });
-        setMessages(migrated);
-        localStorage.setItem('penny_guestbook_messages', JSON.stringify(migrated));
+
+        if (fbMessages.length === 0) {
+          // If Firestore is completely empty, seed it with DEFAULT_MESSAGES
+          for (const msg of DEFAULT_MESSAGES) {
+            await setDoc(doc(db, 'messages', msg.id), {
+              name: msg.name,
+              content: msg.content,
+              inkColor: msg.inkColor,
+              stamp: msg.stamp,
+              timestamp: msg.timestamp
+            });
+            fbMessages.push(msg);
+          }
+        }
+
+        if (isMounted) {
+          setMessages(fbMessages);
+        }
       } catch (e) {
-        setMessages(DEFAULT_MESSAGES);
+        console.warn("Firestore fetch failed, falling back to local storage:", e);
+        const saved = localStorage.getItem('penny_guestbook_messages');
+        if (saved) {
+          try {
+            const parsed = JSON.parse(saved);
+            const migrated = parsed.map((item: any) => {
+              if (item.id === 'm2' && (item.name.includes('Xiao Wei') || item.content.includes('毕毕！'))) {
+                return {
+                  ...item,
+                  name: 'Xin Xin',
+                  content: '这套关于“数字物性与触感界面”的数字画廊做的太妙了，互动非常有拉力和重感，一下子想起了我们在伦敦工坊敲木头布展的日子。'
+                };
+              }
+              return item;
+            });
+            if (isMounted) setMessages(migrated);
+          } catch (err) {
+            if (isMounted) setMessages(DEFAULT_MESSAGES);
+          }
+        } else {
+          if (isMounted) setMessages(DEFAULT_MESSAGES);
+        }
+        try {
+          handleFirestoreError(e, OperationType.LIST, 'messages');
+        } catch (err) {}
+      } finally {
+        if (isMounted) setIsLoading(false);
       }
-    } else {
-      localStorage.setItem('penny_guestbook_messages', JSON.stringify(DEFAULT_MESSAGES));
-      setMessages(DEFAULT_MESSAGES);
-    }
-  }, []);
+    };
+
+    fetchMessages();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !content.trim()) return;
 
+    const newId = `msg-${Date.now()}`;
     const newMsg: Message = {
-      id: `msg-${Date.now()}`,
+      id: newId,
       name: name.trim().slice(0, 30),
       content: content.trim().slice(0, 500),
       inkColor: selectedInk,
@@ -120,12 +219,36 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
     setContent('');
     setIsSuccess(true);
     setTimeout(() => setIsSuccess(false), 2500);
+
+    try {
+      await setDoc(doc(db, 'messages', newId), {
+        name: newMsg.name,
+        content: newMsg.content,
+        inkColor: newMsg.inkColor,
+        stamp: newMsg.stamp,
+        timestamp: newMsg.timestamp
+      });
+    } catch (error) {
+      console.error("Failed to write to Firestore:", error);
+      try {
+        handleFirestoreError(error, OperationType.WRITE, `messages/${newId}`);
+      } catch (err) {}
+    }
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     const updated = messages.filter(msg => msg.id !== id);
     setMessages(updated);
     localStorage.setItem('penny_guestbook_messages', JSON.stringify(updated));
+
+    try {
+      await deleteDoc(doc(db, 'messages', id));
+    } catch (error) {
+      console.error("Failed to delete from Firestore:", error);
+      try {
+        handleFirestoreError(error, OperationType.DELETE, `messages/${id}`);
+      } catch (err) {}
+    }
   };
 
   return (
@@ -302,7 +425,12 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
 
             {/* Scrollable List of messages */}
             <div className="flex-1 overflow-y-auto pr-1 mt-4 space-y-4 max-h-[45vh] md:max-h-[58vh]">
-              {messages.length === 0 ? (
+              {isLoading ? (
+                <div className="py-20 text-center text-xs text-stone-400 font-mono uppercase tracking-widest select-none flex flex-col items-center justify-center gap-2">
+                  <div className="w-5 h-5 border-2 border-stone-300 border-t-stone-800 rounded-full animate-spin" />
+                  <span>{isEn ? "[ Reading Ledger... ]" : "[ 翻阅墨迹归档中... ]"}</span>
+                </div>
+              ) : messages.length === 0 ? (
                 <div className="py-20 text-center text-xs text-stone-400 font-mono uppercase tracking-widest select-none">
                   {isEn ? "[ Empty Ledger ]" : "[ 暂无访客墨守 ]"}
                 </div>
