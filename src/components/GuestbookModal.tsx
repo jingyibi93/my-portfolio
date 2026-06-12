@@ -127,6 +127,12 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
   const [clickCount, setClickCount] = useState(0);
   const [adminInputError, setAdminInputError] = useState(false);
 
+  const displayedMessages = messages.filter(msg => {
+    if (isAdmin) return true;
+    // Users see their own messages and default system seed messages
+    return msg.visitorId === visitorId || msg.visitorId === 'system-seed';
+  });
+
   // Initialize or retrieve persistent client-side visitor id on component load
   useEffect(() => {
     let vid = localStorage.getItem('penny_visitor_id');
@@ -488,12 +494,12 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
                   <div className="w-5 h-5 border-2 border-stone-300 border-t-stone-800 rounded-full animate-spin" />
                   <span>{isEn ? "[ Reading Ledger... ]" : "[ 翻阅墨迹归档中... ]"}</span>
                 </div>
-              ) : messages.length === 0 ? (
+              ) : displayedMessages.length === 0 ? (
                 <div className="py-20 text-center text-xs text-stone-400 font-mono uppercase tracking-widest select-none">
                   {isEn ? "[ Empty Ledger ]" : "[ 暂无访客墨守 ]"}
                 </div>
               ) : (
-                messages.map((msg) => (
+                displayedMessages.map((msg) => (
                   <motion.div
                     key={msg.id}
                     initial={{ opacity: 0, x: 20 }}
