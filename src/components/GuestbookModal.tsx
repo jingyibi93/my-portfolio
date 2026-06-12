@@ -291,7 +291,7 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
   const handleAdminSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const normalized = adminCodeInput.trim().toLowerCase();
-    if (normalized === 'penny2026' || normalized === 'pennyadmin' || normalized === 'gravity2026') {
+    if (normalized === 'bjy2026') {
       setIsAdmin(true);
       localStorage.setItem('penny_portfolio_admin_active', 'true');
       setShowAdminInput(false);
