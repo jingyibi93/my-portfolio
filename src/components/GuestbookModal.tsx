@@ -128,9 +128,10 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
   const [adminInputError, setAdminInputError] = useState(false);
 
   const displayedMessages = messages.filter(msg => {
+    if (msg.visitorId === 'system-seed') return false;
     if (isAdmin) return true;
-    // Users see their own messages and default system seed messages
-    return msg.visitorId === visitorId || msg.visitorId === 'system-seed';
+    // Users see their own messages only
+    return msg.visitorId === visitorId;
   });
 
   // Initialize or retrieve persistent client-side visitor id on component load
@@ -208,10 +209,10 @@ export default function GuestbookModal({ isOpen, onClose, isEn }: GuestbookModal
             });
             if (isMounted) setMessages(migrated);
           } catch (err) {
-            if (isMounted) setMessages(DEFAULT_MESSAGES);
+            if (isMounted) setMessages([]);
           }
         } else {
-          if (isMounted) setMessages(DEFAULT_MESSAGES);
+          if (isMounted) setMessages([]);
         }
         try {
           handleFirestoreError(e, OperationType.LIST, 'messages');
