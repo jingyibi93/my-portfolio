@@ -321,6 +321,45 @@ const getProjectCardMetadata = (itemId: string, activeProjectItem: any, isEn: bo
         location: isEn ? "Xiamen" : "厦门",
         contribution: "Site Analysis\\Form Design\\Diagram Drawing\\Modeling\\Rendering"
       };
+    case 'note-f1':
+      return {
+        name: name || (isEn ? "CAMELLIA PHONE CASE" : "山茶花手机壳"),
+        type: isEn ? "Generative Film" : "生成式影像作品",
+        plotArea: "N/A",
+        buildingArea: "N/A",
+        role: isEn ? "AI Director & Prompt Architect" : "导演与提示词架构师",
+        date: "2026.06",
+        location: isEn ? "Digital Terminal" : "虚拟数字终端",
+        contribution: isEn 
+          ? "Generative Film Directing, Frame-Splicing, Diffusion Consistency Engineering"
+          : "生成式影像导演、分镜拼接、扩散一致性调校"
+      };
+    case 'note-f2':
+      return {
+        name: name || (isEn ? "THE ROTATING ARCHIVE" : "旋转书夹"),
+        type: isEn ? "Interactive Web Portfolio Design" : "作品集旋转交互网页设计",
+        plotArea: "N/A",
+        buildingArea: "N/A",
+        role: isEn ? "Creative Technologist" : "创意技术工程开发",
+        date: "06/2026",
+        location: isEn ? "Web Platform" : "浏览器网页开发环境",
+        contribution: isEn 
+          ? "Carousel Physics Emulation, Drag Gesture Damping, Random Selection Drawer Logic"
+          : "轮盘物理学触觉拟真、滑动惯性阻力衰减、随机抽卡抽屉算法"
+      };
+    case 'note-f3':
+      return {
+        name: name || (isEn ? "THE FRIDGE MEMO" : "冰箱便签"),
+        type: isEn ? "Interactive Shared Applet" : "共享式家庭交互小程序",
+        plotArea: "N/A",
+        buildingArea: "N/A",
+        role: isEn ? "Solo Fullstack Developer & Interaction Designer" : "独立全栈开发与交互设计",
+        date: "06/2026",
+        location: isEn ? "Local Touch Terminal" : "物理触屏家庭终端",
+        contribution: isEn 
+          ? "Absolute Space Placement, Drag Interaction Tuning, Family Messaging Architecture"
+          : "便签空间绝对定位存储、拖拽触感调校、多口家庭通讯机制设计"
+      };
     default:
       const isImg = itemId.startsWith('img-');
       const isFrag = itemId.startsWith('frag-');
@@ -1001,7 +1040,7 @@ const getProjectImagesById = (itemId: string): string[] => {
     'frag-f7': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800',
     'note-f1': 'https://images.unsplash.com/photo-1516962215328-219b661d152c?auto=format&fit=crop&q=80&w=800',
     'note-f2': 'https://i.postimg.cc/qq4VngVW/Screen-Shot-2026-06-11-150018-875.jpg',
-    'note-f3': 'https://images.unsplash.com/photo-1532012164546-f432f2c3edd0?auto=format&fit=crop&q=80&w=800',
+    'note-f3': 'https://i.postimg.cc/MTB8GTkw/wei-xin-tu-pian-20260614175342-274-71.png',
     'note-f4': 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800',
     'note-f5': 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=800',
     'note-f6': 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=800',
@@ -1369,6 +1408,18 @@ export default function GallerySpace({
         top: '28%',
         rotate: 4,
         delay: 0.12
+      },
+      {
+        id: 'note-f3',
+        image: 'https://i.postimg.cc/MTB8GTkw/wei-xin-tu-pian-20260614175342-274-71.png',
+        titleEn: 'THE FRIDGE MEMO',
+        titleZh: '冰箱便签',
+        widthClass: 'w-42 sm:w-52',
+        heightClass: 'h-32 sm:h-40',
+        left: '18%',
+        top: '52%',
+        rotate: -12,
+        delay: 0.18
       }
     ],
     experiments: [
@@ -1949,9 +2000,7 @@ export default function GallerySpace({
                                     return match ? match[1] : 'BV1ajEF6TEXE';
                                   })()}&p=1&high_quality=1&autoplay=1&t=1`}
                                   scrolling="no" 
-                                  border="0" 
-                                  frameBorder="no" 
-                                  frameSpacing="0" 
+                                  frameBorder="0" 
                                   allowFullScreen={true}
                                   allow="autoplay; encrypted-media; fullscreen"
                                   sandbox="allow-top-navigation allow-same-origin allow-scripts allow-forms allow-popups"
@@ -2043,12 +2092,14 @@ export default function GallerySpace({
                       </div>
 
                       {/* STACKED IMAGE GALLERIES PILE FOR ROTATING ARCHIVE IN NOTES DRAWER */}
-                      {selectedProjectItemId === 'note-f2' && imagesList && imagesList.length > 0 && (
+                      {(selectedProjectItemId === 'note-f2' || selectedProjectItemId === 'note-f3') && imagesList && imagesList.length > 0 && (
                         <div className="relative w-full max-w-6xl h-80 sm:h-[450px] flex items-end justify-center pb-20 sm:pb-32 mx-auto overflow-visible select-none shrink-0 mt-6 sm:mt-16">
                           {/* Visual stacking guide in text */}
                           <div className="absolute top-0 flex items-center gap-2 select-none pointer-events-none text-neutral-350 font-mono text-[9px] uppercase tracking-widest z-10">
                             <span>✦</span>
-                            <span>{isEn ? "Interactive Web Interface Gallery // Click to expand" : "网页交互界面演示图库 // 点击下方相纸放大阅读细节"}</span>
+                            <span>{selectedProjectItemId === 'note-f3'
+                              ? (isEn ? "Shared Applet Screens Gallery // Click to expand" : "交互小程序演示图库 // 点击下方相纸放大阅读细节")
+                              : (isEn ? "Interactive Web Interface Gallery // Click to expand" : "网页交互界面演示图库 // 点击下方相纸放大阅读细节")}</span>
                             <span>✦</span>
                           </div>
 
@@ -2286,7 +2337,8 @@ export default function GallerySpace({
 
                       {/* CONDITIONAL MEDIA CONTAINER: VIDEO OR IMAGE PILE */}
                       {dbItem && dbItem.videoUrl ? (() => {
-                        const bvidMatch = dbItem.videoUrl.match(/video\/(BV[a-zA-Z0-9]+)/);
+                        const isMp4 = dbItem.videoUrl.toLowerCase().split('?')[0].endsWith('.mp4') || dbItem.videoUrl.toLowerCase().includes('.mp4');
+                        const bvidMatch = dbItem.videoUrl.match(/video\/(BV[a-zA-Z0-9]+)/) || dbItem.videoUrl.match(/(BV[a-zA-Z0-9]+)/);
                         const bvid = bvidMatch ? bvidMatch[1] : "";
                         const tMatch = dbItem.videoUrl.match(/t=([0-9.]+)/);
                         const tVal = tMatch ? Math.floor(parseFloat(tMatch[1])) : 0;
@@ -2297,13 +2349,20 @@ export default function GallerySpace({
                               {isEn ? "✦ ACTIVE VIDEO EMBED" : "✦ 视频作品放映厅"}
                             </div>
                             <div className="w-full aspect-video rounded-lg overflow-hidden bg-black border-[3px] border-black shadow-[4px_4px_0_rgba(0,0,0,1)] relative">
-                              {bvid ? (
+                              {isMp4 ? (
+                                <video 
+                                  src={dbItem.videoUrl}
+                                  controls
+                                  autoPlay
+                                  muted
+                                  playsInline
+                                  className="w-full h-full object-contain"
+                                />
+                              ) : bvid ? (
                                 <iframe 
                                   src={`//player.bilibili.com/player.html?bvid=${bvid}&p=1&high_quality=1&autoplay=1&t=${tVal}`}
                                   scrolling="no" 
-                                  border="0" 
-                                  frameBorder="no" 
-                                  frameSpacing="0" 
+                                  frameBorder="0" 
                                   allowFullScreen={true}
                                   allow="autoplay; encrypted-media; fullscreen"
                                   sandbox="allow-top-navigation allow-same-origin allow-scripts allow-forms allow-popups"
@@ -2319,9 +2378,11 @@ export default function GallerySpace({
                             <div className="text-[10px] sm:text-xs text-stone-550 font-sans font-medium flex items-start gap-1 px-1 py-1 leading-relaxed text-left">
                               <span className="text-stone-700 font-bold shrink-0">💡 {isEn ? "Tip:" : "小提示："}</span>
                               <span className="opacity-85">
-                                {isEn 
-                                  ? "Web browsers block video sound by default. Simply click the speaker icon in the bottom-right control bar of the Bilibili player to turn on audio!"
-                                  : "若播放时没有声音，只需轻点播放器右下角的喇叭图标即可开启声音体验！"}
+                                {isMp4 
+                                  ? (isEn ? "MP4 video direct link is active. Use controls to adjust sound or play speed." : "MP4 直链视频播放中。您可以使用播放器控制条调整音量与进度。")
+                                  : (isEn 
+                                    ? "Web browsers block video sound by default. Simply click the speaker icon in the bottom-right control bar of the Bilibili player to turn on audio!"
+                                    : "若播放时没有声音，只需轻点播放器右下角的喇叭图标即可开启声音体验！")}
                               </span>
                             </div>
                           </div>

@@ -523,6 +523,27 @@ export const NOTES_DATA: NoteItem[] = [
       'https://i.postimg.cc/qR8HzyYn/Screen-Shot-2026-06-11-150221-843.jpg'
     ],
     videoUrl: 'https://www.bilibili.com/video/BV1WfEv6sEJi/?spm_id_from=333.1387.homepage.video_card.click'
+  },
+  {
+    id: 'note-3',
+    category: 'Interactive Applet / 交互式小程序',
+    titleZh: '冰箱便签',
+    titleEn: 'THE FRIDGE MEMO',
+    date: '06/2026',
+    readTime: 'Applet ｜ 交互小程序',
+    descriptionZh: '冰箱便签是一个以家庭冰箱为灵感的共享便签小程序。现实生活中，冰箱门常常承载着购物清单、提醒、照片和家人之间的留言，它不是正式的记事本，却记录了很多细碎而真实的日常。',
+    descriptionEn: 'Fridge Memo is a shared note-taking mini program inspired by the family refrigerator. In everyday life, the fridge door often holds shopping lists, reminders, photos, and small messages between family members. It is not a formal notebook, but it quietly records many ordinary moments at home.',
+    contentZh: '冰箱便签是一个以家庭冰箱为灵感的共享便签小程序。现实生活中，冰箱门常常承载着购物清单、提醒、照片和家人之间的留言，它不是正式的记事本，却记录了很多细碎而真实的日常。\n\n这个项目希望把这种生活感转化为一个线上空间。用户可以在同一个“冰箱”上贴便签、上传图片、移动内容，并与家人共同使用。相比普通的效率工具，它更关注家庭沟通中的温度与记忆感，让日常的小事被轻轻保存下来。',
+    contentEn: 'Fridge Memo is a shared note-taking mini program inspired by the family refrigerator. In everyday life, the fridge door often holds shopping lists, reminders, photos, and small messages between family members. It is not a formal notebook, but it quietly records many ordinary moments at home.\n\nThis project turns that familiar scene into a digital space. Users can add notes, upload images, move items around, and share the same virtual fridge with family members. Rather than being a purely efficient tool, Fridge Memo focuses on the warmth of family communication and the small memories hidden in daily life.',
+    image: 'https://i.postimg.cc/MTB8GTkw/wei-xin-tu-pian-20260614175342-274-71.png',
+    galleryImages: [
+      'https://i.postimg.cc/Qt7rMM26/wei-xin-tu-pian-20260614175341-273-71.png',
+      'https://i.postimg.cc/gj4tcF2t/wei-xin-tu-pian-20260614175345-275-71.png',
+      'https://i.postimg.cc/d0Tf2x5C/wei-xin-tu-pian-20260614175450-8952-46.png',
+      'https://i.postimg.cc/sXdNw4L0/wei-xin-tu-pian-20260614175451-8953-46.png',
+      'https://i.postimg.cc/sXY08ZdQ/wei-xin-tu-pian-20260614180427-278-71.png',
+    ],
+    videoUrl: 'https://www.bilibili.com/video/BV11UjT66Eji/'
   }
 ];
 

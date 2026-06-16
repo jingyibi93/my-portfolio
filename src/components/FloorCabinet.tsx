@@ -56,7 +56,8 @@ const drawerStacks: Record<CategoryId, Array<{ image: string; titleZh: string; t
   ],
   notes: [
     { image: 'https://i.postimg.cc/63Cz8Cwr/1.png', titleZh: '拟 ｜ 山茶手机壳', titleEn: 'Camellia Case' },
-    { image: 'https://i.postimg.cc/qq4VngVW/Screen-Shot-2026-06-11-150018-875.jpg', titleZh: '拟 ｜ 旋转书夹', titleEn: 'The Rotating Archive' }
+    { image: 'https://i.postimg.cc/qq4VngVW/Screen-Shot-2026-06-11-150018-875.jpg', titleZh: '拟 ｜ 旋转书夹', titleEn: 'The Rotating Archive' },
+    { image: 'https://i.postimg.cc/MTB8GTkw/wei-xin-tu-pian-20260614175342-274-71.png', titleZh: '拟 ｜ 冰箱便签', titleEn: 'The Fridge Memo' }
   ],
   experiments: [
     { image: 'https://i.postimg.cc/SK56t6zd/sound-map.jpg', titleZh: '试验 ｜ 谐振画布', titleEn: 'Generative Canvas' }
@@ -273,7 +274,7 @@ export default function FloorCabinet({
       accentColor: '#78716c',
       flatBg: 'bg-[#fafaf9]',
       itemBg: 'bg-stone-200',
-      itemsCount: 2,
+      itemsCount: 3,
       subtextZh: 'AI共同演化与履历',
       subtextEn: 'AI Co-evolution & CV'
     }

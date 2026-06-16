@@ -691,32 +691,45 @@ export function NotesView({ isEn }: ContentProps) {
               ✕
             </button>
 
-            {/* Bilibili Video Embed Layer */}
+            {/* Bilibili or Native MP4 Video Embed Layer */}
             <div className="flex flex-col gap-2 w-full">
               <div className="border-[3px] border-black rounded-2xl overflow-hidden aspect-video bg-black max-h-[50vh] filter drop-shadow-[3px_3px_0_rgba(0,0,0,1)]">
-                <iframe 
-                  src={`//player.bilibili.com/player.html?bvid=${(() => {
-                    const url = lightboxImg?.videoUrl;
-                    if (!url) return 'BV1S4Ew6METQ';
-                    const match = url.match(/(BV[a-zA-Z0-9]+)/);
-                    return match ? match[1] : 'BV1S4Ew6METQ';
-                  })()}&p=1&high_quality=1&autoplay=1&t=1`}
-                  scrolling="no" 
-                  border="0" 
-                  frameBorder="no" 
-                  frameSpacing="0" 
-                  allowFullScreen={true}
-                  allow="autoplay; encrypted-media; fullscreen"
-                  sandbox="allow-top-navigation allow-same-origin allow-scripts allow-forms allow-popups"
-                  className="w-full h-full"
-                />
+                {lightboxImg?.videoUrl && (lightboxImg.videoUrl.toLowerCase().split('?')[0].endsWith('.mp4') || lightboxImg.videoUrl.toLowerCase().includes('.mp4')) ? (
+                  <video 
+                    src={lightboxImg.videoUrl} 
+                    controls 
+                    autoPlay 
+                    muted 
+                    playsInline 
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <iframe 
+                    src={`//player.bilibili.com/player.html?bvid=${(() => {
+                      const url = lightboxImg?.videoUrl;
+                      if (!url) return 'BV1S4Ew6METQ';
+                      const match = url.match(/(BV[a-zA-Z0-9]+)/);
+                      return match ? match[1] : 'BV1S4Ew6METQ';
+                    })()}&p=1&high_quality=1&autoplay=1&t=1`}
+                    scrolling="no" 
+                    frameBorder="0" 
+                    allowFullScreen={true}
+                    allow="autoplay; encrypted-media; fullscreen"
+                    sandbox="allow-top-navigation allow-same-origin allow-scripts allow-forms allow-popups"
+                    className="w-full h-full"
+                  />
+                )}
               </div>
               <div className="text-[10px] sm:text-xs text-stone-500 font-sans font-medium flex items-start gap-1 px-1 py-1">
                 <span className="text-stone-700 font-bold shrink-0">💡 {isEn ? "Tip:" : "小提示："}</span>
                 <span>
-                  {isEn 
-                    ? "Modern browsers block sound by default for autoplaying videos. Simply click the speaker icon in Bilibili's bottom right control bar once to restore sound. Your browser will remember this setting for subsequent visits!"
-                    : "由于浏览器自带的媒体保护机制，自动播放时会默认静音。只需手动点击播放器右下角喇叭图标恢复声音一次，后续每次进入即可自动带声播放。"}
+                  {lightboxImg?.videoUrl && (lightboxImg.videoUrl.toLowerCase().split('?')[0].endsWith('.mp4') || lightboxImg.videoUrl.toLowerCase().includes('.mp4')) ? (
+                    isEn ? "MP4 video direct link is active. Use controls to adjust sound or play speed." : "MP4 直链视频播放中。您可以使用播放器控制条调整音量与进度。"
+                  ) : (
+                    isEn 
+                      ? "Modern browsers block sound by default for autoplaying videos. Simply click the speaker icon in Bilibili's bottom right control bar once to restore sound. Your browser will remember this setting for subsequent visits!"
+                      : "由于浏览器自带的媒体保护机制，自动播放时会默认静音。只需手动点击播放器右下角喇叭图标恢复声音一次，后续每次进入即可自动带声播放。"
+                  )}
                 </span>
               </div>
             </div>
@@ -837,32 +850,45 @@ export function ExperimentsView({ isEn }: ContentProps) {
               ✕
             </button>
 
-            {/* Bilibili Video Embed Layer */}
+            {/* Bilibili or Native MP4 Video Embed Layer */}
             <div className="flex flex-col gap-2 w-full">
               <div className="border-[3px] border-black rounded-2xl overflow-hidden aspect-video bg-black max-h-[50vh] filter drop-shadow-[3px_3px_0_rgba(0,0,0,1)]">
-                <iframe 
-                  src={`//player.bilibili.com/player.html?bvid=${(() => {
-                    const url = lightboxImg?.videoUrl;
-                    if (!url) return 'BV1ajEF6TEXE';
-                    const match = url.match(/(BV[a-zA-Z0-9]+)/);
-                    return match ? match[1] : 'BV1ajEF6TEXE';
-                  })()}&p=1&high_quality=1&autoplay=1&t=1`}
-                  scrolling="no" 
-                  border="0" 
-                  frameBorder="no" 
-                  frameSpacing="0" 
-                  allowFullScreen={true}
-                  allow="autoplay; encrypted-media; fullscreen"
-                  sandbox="allow-top-navigation allow-same-origin allow-scripts allow-forms allow-popups"
-                  className="w-full h-full"
-                />
+                {lightboxImg?.videoUrl && (lightboxImg.videoUrl.toLowerCase().split('?')[0].endsWith('.mp4') || lightboxImg.videoUrl.toLowerCase().includes('.mp4')) ? (
+                  <video 
+                    src={lightboxImg.videoUrl} 
+                    controls 
+                    autoPlay 
+                    muted 
+                    playsInline 
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <iframe 
+                    src={`//player.bilibili.com/player.html?bvid=${(() => {
+                      const url = lightboxImg?.videoUrl;
+                      if (!url) return 'BV1ajEF6TEXE';
+                      const match = url.match(/(BV[a-zA-Z0-9]+)/);
+                      return match ? match[1] : 'BV1ajEF6TEXE';
+                    })()}&p=1&high_quality=1&autoplay=1&t=1`}
+                    scrolling="no" 
+                    frameBorder="0" 
+                    allowFullScreen={true}
+                    allow="autoplay; encrypted-media; fullscreen"
+                    sandbox="allow-top-navigation allow-same-origin allow-scripts allow-forms allow-popups"
+                    className="w-full h-full"
+                  />
+                )}
               </div>
               <div className="text-[10px] sm:text-xs text-stone-500 font-sans font-medium flex items-start gap-1 px-1 py-1">
                 <span className="text-stone-700 font-bold shrink-0">💡 {isEn ? "Tip:" : "小提示："}</span>
                 <span>
-                  {isEn 
-                    ? "Modern browsers block sound by default for autoplaying videos. Simply click the speaker icon in Bilibili's bottom right control bar once to restore sound. Your browser will remember this setting for subsequent visits!"
-                    : "由于浏览器自带的媒体保护机制，自动播放时会默认静音。只需手动点击播放器右下角喇叭图标恢复声音一次，后续每次进入即可自动带声播放。"}
+                  {lightboxImg?.videoUrl && (lightboxImg.videoUrl.toLowerCase().split('?')[0].endsWith('.mp4') || lightboxImg.videoUrl.toLowerCase().includes('.mp4')) ? (
+                    isEn ? "MP4 video direct link is active. Use controls to adjust sound or play speed." : "MP4 直链视频播放中。您可以使用播放器控制条调整音量与进度。"
+                  ) : (
+                    isEn 
+                      ? "Modern browsers block sound by default for autoplaying videos. Simply click the speaker icon in Bilibili's bottom right control bar once to restore sound. Your browser will remember this setting for subsequent visits!"
+                      : "由于浏览器自带的媒体保护机制，自动播放时会默认静音。只需手动点击播放器右下角喇叭图标恢复声音一次，后续每次进入即可自动带声播放。"
+                  )}
                 </span>
               </div>
             </div>
