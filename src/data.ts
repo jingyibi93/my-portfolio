@@ -556,7 +556,7 @@ export const NOTES_DATA: NoteItem[] = [
     descriptionEn: 'Poetry Mailbox is a healing interactive applet blending English learning, handwritten moods, and retro typing mechanical rituals. Users can select letters reflecting different moods, experience the vintage printing process, and collect or listen to spoken-word poetry narration.',
     contentZh: '每日诗歌信箱是一个融合了英语学习、手写心情和复古机械仪式感的治愈系网页小程序。用户可以在其中挑选不同心境的信件、体验打字机微缩打印的机械键盘声，并收藏和播放温暖的诗歌朗读，让英语学习变成生活中一个轻柔温热的瞬间。',
     contentEn: 'Poemail is a healing interactive applet blending English learning, handwritten moods, and retro typing mechanical rituals. Users can select letters reflecting different moods, experience the vintage printing process, and collect or listen to spoken-word poetry narration, transforming vocabulary learning into a gentle, tactile experience.',
-    image: 'https://i.postimg.cc/506yd359/iphone17-2.png',
+    image: 'https://i.postimg.cc/G2HtwQPm/iphone17-1.png',
     galleryImages: [
       'https://i.postimg.cc/G2HtwQPm/iphone17-1.png',
       'https://i.postimg.cc/506yd359/iphone17-2.png',
