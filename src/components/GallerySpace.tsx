@@ -1054,7 +1054,7 @@ const getProjectImagesById = (itemId: string): string[] => {
     'note-f1': 'https://images.unsplash.com/photo-1516962215328-219b661d152c?auto=format&fit=crop&q=80&w=800',
     'note-f2': 'https://i.postimg.cc/qq4VngVW/Screen-Shot-2026-06-11-150018-875.jpg',
     'note-f3': 'https://i.postimg.cc/MTB8GTkw/wei-xin-tu-pian-20260614175342-274-71.png',
-    'note-f4': 'https://i.postimg.cc/sXzsb5zj/iphone17-2.png',
+    'note-f4': 'https://i.postimg.cc/G2HtwQPm/iphone17-1.png',
     'note-f5': 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=800',
     'note-f6': 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=800',
     'note-f7': 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800',
@@ -1436,7 +1436,7 @@ export default function GallerySpace({
       },
       {
         id: 'note-f4',
-        image: 'https://i.postimg.cc/sXzsb5zj/iphone17-2.png',
+        image: 'https://i.postimg.cc/G2HtwQPm/iphone17-1.png',
         titleEn: 'POEMAIL',
         titleZh: '每日诗歌信箱',
         widthClass: 'w-42 sm:w-52',
