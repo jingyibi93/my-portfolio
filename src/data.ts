@@ -526,7 +526,7 @@ export const NOTES_DATA: NoteItem[] = [
   },
   {
     id: 'note-3',
-    category: 'Interactive Applet / 交互式小程序',
+    category: 'Interactive App / 交互式小程序',
     titleZh: '冰箱便签',
     titleEn: 'THE FRIDGE MEMO',
     date: '06/2026',
@@ -544,6 +544,29 @@ export const NOTES_DATA: NoteItem[] = [
       'https://i.postimg.cc/sXY08ZdQ/wei-xin-tu-pian-20260614180427-278-71.png',
     ],
     videoUrl: 'https://www.bilibili.com/video/BV11UjT66Eji/'
+  },
+  {
+    id: 'note-4',
+    category: 'Interactive App / 交互式小程序',
+    titleZh: '每日诗歌信箱',
+    titleEn: 'Poemail',
+    date: '06/2026',
+    readTime: 'Video ｜ 3 min',
+    descriptionZh: '每日诗歌信箱是一个融合了英语学习、手写心情和复古机械仪式感的治愈系网页小程序。用户可以在其中挑选不同心境的信件、体验打字机微缩打印，并收藏和播放温暖的诗歌朗读。',
+    descriptionEn: 'Poetry Mailbox is a healing interactive applet blending English learning, handwritten moods, and retro typing mechanical rituals. Users can select letters reflecting different moods, experience the vintage printing process, and collect or listen to spoken-word poetry narration.',
+    contentZh: '每日诗歌信箱是一个融合了英语学习、手写心情和复古机械仪式感的治愈系网页小程序。用户可以在其中挑选不同心境的信件、体验打字机微缩打印的机械键盘声，并收藏和播放温暖的诗歌朗读，让英语学习变成生活中一个轻柔温热的瞬间。',
+    contentEn: 'Poemail is a healing interactive applet blending English learning, handwritten moods, and retro typing mechanical rituals. Users can select letters reflecting different moods, experience the vintage printing process, and collect or listen to spoken-word poetry narration, transforming vocabulary learning into a gentle, tactile experience.',
+    image: 'https://i.postimg.cc/506yd359/iphone17-2.png',
+    galleryImages: [
+      'https://i.postimg.cc/G2HtwQPm/iphone17-1.png',
+      'https://i.postimg.cc/506yd359/iphone17-2.png',
+      'https://i.postimg.cc/W3hzLnm3/iphone17-3.png',
+      'https://i.postimg.cc/cHrCym7G/i-Phone17-4.png',
+      'https://i.postimg.cc/Ss3syMVf/i-Phone17-5.png',
+      'https://i.postimg.cc/J7H0pp45/iphone17-6.png',
+      'https://i.postimg.cc/WbR3C0h8/i-Phone17-7.png',
+    ],
+    videoUrl: 'https://www.bilibili.com/video/BV13pjd6XEgj/?spm_id_from=333.1387.homepage.video_card.click'
   }
 ];
 

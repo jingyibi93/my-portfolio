@@ -360,6 +360,19 @@ const getProjectCardMetadata = (itemId: string, activeProjectItem: any, isEn: bo
           ? "Absolute Space Placement, Drag Interaction Tuning, Family Messaging Architecture"
           : "便签空间绝对定位存储、拖拽触感调校、多口家庭通讯机制设计"
       };
+    case 'note-f4':
+      return {
+        name: name || (isEn ? "Poemail" : "每日诗歌信箱"),
+        type: isEn ? "Healing Interactive Applet" : "英文治愈系打字机小程序",
+        plotArea: "N/A",
+        buildingArea: "N/A",
+        role: isEn ? "Independent Designer & Developer" : "独立设计与开发",
+        date: "06/2026",
+        location: isEn ? "Interactive Exhibition" : "跨媒介感官交互系统",
+        contribution: isEn 
+          ? "Synthesizer Tuning, Physical Print Mechanical Simulation, Bilingual Narrative Curation"
+          : "音频合成调校、纸卷滚动物理仿真、双语意境与白噪音企划"
+      };
     default:
       const isImg = itemId.startsWith('img-');
       const isFrag = itemId.startsWith('frag-');
@@ -1041,7 +1054,7 @@ const getProjectImagesById = (itemId: string): string[] => {
     'note-f1': 'https://images.unsplash.com/photo-1516962215328-219b661d152c?auto=format&fit=crop&q=80&w=800',
     'note-f2': 'https://i.postimg.cc/qq4VngVW/Screen-Shot-2026-06-11-150018-875.jpg',
     'note-f3': 'https://i.postimg.cc/MTB8GTkw/wei-xin-tu-pian-20260614175342-274-71.png',
-    'note-f4': 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800',
+    'note-f4': 'https://i.postimg.cc/sXzsb5zj/iphone17-2.png',
     'note-f5': 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=800',
     'note-f6': 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=800',
     'note-f7': 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800',
@@ -1420,6 +1433,18 @@ export default function GallerySpace({
         top: '52%',
         rotate: -12,
         delay: 0.18
+      },
+      {
+        id: 'note-f4',
+        image: 'https://i.postimg.cc/sXzsb5zj/iphone17-2.png',
+        titleEn: 'POEMAIL',
+        titleZh: '每日诗歌信箱',
+        widthClass: 'w-42 sm:w-52',
+        heightClass: 'h-32 sm:h-40',
+        left: '58%',
+        top: '56%',
+        rotate: 8,
+        delay: 0.24
       }
     ],
     experiments: [
@@ -2092,12 +2117,12 @@ export default function GallerySpace({
                       </div>
 
                       {/* STACKED IMAGE GALLERIES PILE FOR ROTATING ARCHIVE IN NOTES DRAWER */}
-                      {(selectedProjectItemId === 'note-f2' || selectedProjectItemId === 'note-f3') && imagesList && imagesList.length > 0 && (
+                      {(selectedProjectItemId === 'note-f2' || selectedProjectItemId === 'note-f3' || selectedProjectItemId === 'note-f4') && imagesList && imagesList.length > 0 && (
                         <div className="relative w-full max-w-6xl h-80 sm:h-[450px] flex items-end justify-center pb-20 sm:pb-32 mx-auto overflow-visible select-none shrink-0 mt-6 sm:mt-16">
                           {/* Visual stacking guide in text */}
                           <div className="absolute top-0 flex items-center gap-2 select-none pointer-events-none text-neutral-350 font-mono text-[9px] uppercase tracking-widest z-10">
                             <span>✦</span>
-                            <span>{selectedProjectItemId === 'note-f3'
+                            <span>{selectedProjectItemId === 'note-f3' || selectedProjectItemId === 'note-f4'
                               ? (isEn ? "Shared Applet Screens Gallery // Click to expand" : "交互小程序演示图库 // 点击下方相纸放大阅读细节")
                               : (isEn ? "Interactive Web Interface Gallery // Click to expand" : "网页交互界面演示图库 // 点击下方相纸放大阅读细节")}</span>
                             <span>✦</span>
