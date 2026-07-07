@@ -567,6 +567,23 @@ export const NOTES_DATA: NoteItem[] = [
       'https://i.postimg.cc/WbR3C0h8/i-Phone17-7.png',
     ],
     videoUrl: 'https://www.bilibili.com/video/BV13pjd6XEgj/?spm_id_from=333.1387.homepage.video_card.click'
+  },
+  {
+    id: 'note-5',
+    category: 'Web Design/Vibe Coding ｜ 网页设计',
+    titleZh: '旋转木马',
+    titleEn: 'MERRY-GO-ROUND',
+    date: '07/2026',
+    readTime: 'Video ｜ 5 min',
+    descriptionZh: '作品《旋转木马》是一个充满梦幻机械美学与动态触感回馈的交互式网页设计终端。该设计采用 React 构建，用户可在虚拟空间数字媒介终端上进行旋转、交互并播放音乐。',
+    descriptionEn: 'The interactive project "Merry-Go-Round" is a whimsical web interface blending classic amusement mechanics with dynamic software animations. Built with React, visitors can rotate, interact, and play music through this speculative digital terminal.',
+    contentZh: '作品《旋转木马》是一个充满梦幻机械美学与动态触感回馈的交互式网页设计终端。设计采用 React 开发，将童年记忆中的双层木马旋转运动与网页底层的高帧率 3D 转换进行算法拟合。用户可以在虚拟空间数字媒介终端上，通过拖拽自由调节旋转阻泥、变换微缩木马配色、并开启经典的八音盒发条八度音回响。这不仅是一个网页设计，更是一件让人在触屏上重拾童年重力与纯真节奏的数字交互艺术品。',
+    contentEn: 'The interactive web design "Merry-Go-Round" is a playful layout blending old-school mechanical amusement aesthetics with dynamic touch-responsive spring animations. Implemented in React, the design aligns continuous childhood carousel trajectories with high-framerate CSS 3D projections. Users interacting with this digital terminal can scrub the screen to modify rotation friction, swap miniature pastel lacquer color themes, and unlock nostalgic music-box bell chimes. It serves not just as a typical portfolio webpage, but as a digital kinetic sculpture recreating physical gravity and innocent cadences on high-resolution screens.',
+    image: 'https://i.postimg.cc/y8Nrf8hB/Screen-Shot-2026-07-06-214856-782.png',
+    galleryImages: [
+      'https://i.postimg.cc/y8Nrf8hB/Screen-Shot-2026-07-06-214856-782.png'
+    ],
+    videoUrl: 'https://www.bilibili.com/video/BV1yGTb6GEpM/?spm_id_from=333.1387.homepage.video_card.click'
   }
 ];
 
@@ -750,3 +767,6 @@ export const CV_DATA: CVSection[] = [
     ]
   }
 ];
+
+// Trigger save tracking
+
