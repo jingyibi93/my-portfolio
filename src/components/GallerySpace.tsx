@@ -1547,11 +1547,11 @@ export default function GallerySpace({
       subEn: '"A Creator Finding Digital & Fluid Narratives In Solitary Tectonics"',
       colorClass: 'border-t-4 border-[#10b981]',
       contentZh: [
-        '毕静怡，1993年出生，建筑学者、设计师及艺术创作者，哈佛大学设计学院（GSD）建筑学硕士。目前担任厦门大学嘉庚学院建筑学专任教师、大一设计课教研组组长。',
+        '毕静怡，建筑学者、设计师及艺术创作者，哈佛大学设计学院（GSD）建筑学硕士。目前担任厦门大学嘉庚学院建筑学专任教师、大一设计课教研组组长。',
         '她的作品跨越实体公共空间营造（曾任如恩设计 Neri&Hu 设计师，主导前滩31等多个地标设计）到 AIGC 先锋数字影像、可交互联觉声音技术系统，致力于寻找在水泥、陶瓷等重物质结构与流体动态感官界面之间的“物理体温”共振与空间转译。'
       ],
       contentEn: [
-        'Jingyi Bi (born 1993) is an architectural scholar, designer, and digital artist, holding a Master of Architecture (M.Arch II) from the Harvard Graduate School of Design (GSD). She currently serves as an Architectural Lecturer and Head of the First-Grade Design Curriculum Group at Xiamen University Tan Kah Kee College.',
+        'Jingyi Bi is an architectural scholar, designer, and digital artist, holding a Master of Architecture (M.Arch II) from the Harvard Graduate School of Design (GSD). She currently serves as an Architectural Lecturer and Head of the First-Grade Design Curriculum Group at Xiamen University Tan Kah Kee College.',
         'Her diverse projects span from monumental civic physical spaces (formerly designer at Neri&Hu lead-coordinating structures like Qiantan 31 Performing Arts Center) to speculative AI tactile films and interactive spatial hardware systems. She and her research explore the synaptic friction and warm physical translations between heavy mineral aggregates and ephemeral computer surfaces.'
       ]
     }
@@ -2722,716 +2722,163 @@ export default function GallerySpace({
 
                     {/* Resume paper content (with vertical scroll) */}
                     <div className="flex-1 overflow-y-auto px-6 py-8 sm:px-10 sm:py-12 md:px-14 md:py-16 text-stone-900 select-text leading-relaxed">
-                      {isEn ? (
-                        /* ENGLISH RESUME (Pages 4, 5, 6) */
-                        <div className="space-y-8 text-stone-900 font-sans">
-                          {/* Header */}
-                          <div className="text-center pb-4 border-b border-stone-300">
-                            <h1 className="text-3xl font-black tracking-wide text-stone-900 font-serif">BI, JINGYI</h1>
-                            <p className="text-[10px] text-stone-500 mt-2 font-mono">
-                              Email: jingyib0918@163.com &nbsp;|&nbsp; Phone: +86 18850571159 &nbsp;|&nbsp; Birthdate: Sept. 18th, 1993
-                            </p>
+                      <div className="space-y-8 text-stone-900 font-sans">
+                        {/* Header Block */}
+                        <div className="space-y-3 pb-6 border-b border-stone-200">
+                          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-wide text-stone-950 font-sans">
+                            Penny Bi
+                          </h1>
+                          <div className="text-xs sm:text-sm font-bold text-stone-800 tracking-wide uppercase leading-snug">
+                            建筑背景的跨媒介创作者、设计师与教育者 <span className="text-stone-400">/</span> CROSS-MEDIA CREATOR, DESIGNER &amp; EDUCATOR
                           </div>
+                          <p className="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-4xl text-justify font-sans">
+                            {isEn 
+                              ? "Graduated from the Harvard Graduate School of Design, her practice spans architecture, space, film, and digital media, exploring how body, perception, and technology co-shape spatial experiences. This website is a continuously updated personal gallery presenting works, experiments, and research processes."
+                              : "毕业于哈佛大学设计学院，实践横跨建筑、空间、影像与数字媒介，关注身体、感知与技术如何共同塑造空间体验。本网站是一座持续更新的个人画廊，用以呈现作品、实验与研究过程。"
+                            }
+                          </p>
+                        </div>
 
-                          {/* EDUCATION */}
-                          <div>
-                            <h2 className="text-sm font-bold tracking-wider text-stone-800 border-b border-stone-200 pb-1 mb-4 uppercase">
-                              EDUCATION
-                            </h2>
-                            <div className="space-y-6">
-                              {/* Edu 1 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>08/2017 - 05/2019</span>
-                                  <span>Massachusetts, U.S.</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">Graduate School of Design, Harvard University</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">Master of Architecture (M.Arch II)</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  Selected Advanced Technology Courses: Digital Media II, Entanglement of Movement and Meaning: The Architect, Spatial Perception and the Technological Body, Near Drawing.
+                        {/* Two-Column Experience & Focus */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-2">
+                          {/* Left Column: Timeline */}
+                          <div className="space-y-4">
+                            <h3 className="text-[10px] sm:text-xs font-mono font-bold tracking-wider text-stone-400 uppercase">
+                              CORE TIMELINE <span className="text-stone-300">//</span> 核心经历
+                            </h3>
+                            <div className="space-y-5">
+                              {/* Item 1 */}
+                              <div className="flex items-start gap-3">
+                                <div className="w-2.5 h-2.5 bg-orange-500 rounded-xs mt-1.5 shrink-0" />
+                                <div>
+                                  <h4 className="text-xs sm:text-sm font-bold text-stone-900">哈佛大学设计学院</h4>
+                                  <p className="text-xs text-stone-500 mt-0.5 font-mono">建筑学硕士 (M.Arch II)</p>
                                 </div>
                               </div>
-
-                              {/* Edu 2 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>09/2018 - 01/2019</span>
-                                  <span>Massachusetts, U.S.</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">Massachusetts Institute of Technology</div>
-                                <div className="text-stone-600 text-xs mt-0.5">Cross Registration</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  Elective Course: Introduction to Shape Grammars.
+                              {/* Item 2 */}
+                              <div className="flex items-start gap-3">
+                                <div className="w-2.5 h-2.5 bg-orange-500 rounded-xs mt-1.5 shrink-0" />
+                                <div>
+                                  <h4 className="text-xs sm:text-sm font-bold text-stone-900">MIT</h4>
+                                  <p className="text-xs text-stone-500 mt-0.5 font-mono">跨校选修 (Shape Grammar)</p>
                                 </div>
                               </div>
-
-                              {/* Edu 3 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>09/2012 - 06/2017</span>
-                                  <span>Fujian, China</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">Huaqiao University</div>
-                                <div className="text-stone-600 text-xs mt-0.5">Bachelor of Architecture, GPA: 3.58 / 4.0 ｜ Major Ranking: 2 / 98</div>
-                              </div>
-
-                              {/* Edu 4 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>03/2015 - 07/2015</span>
-                                  <span>Taiwan, China</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">Chung Yuan Christian University</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">Exchange Program in Architecture, GPA: 3.96 / 4.0</div>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* INTERNSHIP & WORK */}
-                          <div>
-                            <h2 className="text-sm font-bold tracking-wider text-stone-800 border-b border-stone-200 pb-1 mb-4 uppercase">
-                              INTERNSHIP &amp; WORK
-                            </h2>
-                            <div className="space-y-6">
-                              {/* Job 1 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>08/2023 - 01/2026</span>
-                                  <span>Fujian, China</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">Xiamen University Tan Kah Kee College</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">Architectural Lecturer | The Head of First-Grade Design Curriculum Group</div>
-                                <div className="text-[11px] text-stone-500 mt-1 leading-normal flex items-start gap-1">
-                                  <span className="text-[#10b981] font-bold">✧</span>
-                                  <span>Teaching Courses: Fundamentals of Architecture Design I/II, History of Foreign (Countries) Ancient Architecture, Architectural Imaging Practice, Architecture Economy and Management, Professional English for Architecture, Principle of Residential Architectural Design, Special Subject of Urban Design, Architecture Tours (general education).</span>
+                              {/* Item 3 */}
+                              <div className="flex items-start gap-3">
+                                <div className="w-2.5 h-2.5 bg-orange-500 rounded-xs mt-1.5 shrink-0" />
+                                <div>
+                                  <h4 className="text-xs sm:text-sm font-bold text-stone-900">如恩设计研究室 (Neri&amp;Hu) <span className="text-stone-400 font-normal">|</span> OMA 纽约事务所</h4>
+                                  <p className="text-xs text-stone-500 mt-0.5 font-mono">建筑与空间设计师</p>
                                 </div>
                               </div>
-
-                              {/* Job 2 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>03/2023 - 05/2023</span>
-                                  <span>Shanghai, China</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">AIM Architecture</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">Designer</div>
-                                <div className="space-y-1 mt-1 pl-4 text-[11px] text-stone-500">
-                                  <div className="flex items-start gap-1 font-bold text-stone-700">
-                                    <span className="text-stone-400 font-bold">✧</span>
-                                    <span>Project: Shenzhen Bay China Resources Cultural Plaza Interior Design (under construction)</span>
-                                  </div>
-                                  <div className="pl-4 space-y-0.5 text-stone-500">
-                                    <div>• Contributed to the concept design of the urban school and retail spaces within the commercial complex.</div>
-                                    <div>• Assisted in spatial strategy development aligning commercial operation needs and architectural design intent.</div>
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Job 3 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>11/2019 - 04/2022</span>
-                                  <span>Shanghai, China</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">Neri&amp;Hu Design and Research Office</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">Designer</div>
-                                
-                                <div className="space-y-3 mt-2 text-[11px] text-stone-500">
-                                  <div>
-                                    <div className="flex items-start gap-1 font-bold text-stone-700">
-                                      <span className="text-stone-400">✧</span>
-                                      <span>Project: Qiantan 31 Cultural Center Interior Design (built)</span>
-                                    </div>
-                                    <div className="pl-4 space-y-0.5 mt-0.5 text-stone-500">
-                                      <div>• Contributed to schematic design and design development for Hall A and Hall B (Black Box Theatre).</div>
-                                      <div>• Acted as a design coordinator between clients, local design institutes and multidisciplinary consultants (structure, MEP, theater).</div>
-                                      <div>• Participated in weekly coordination meetings, technical reviews and design alignment.</div>
-                                      <div>• Conducted regular site inspections to ensure design intent implementation during construction.</div>
-                                    </div>
-                                  </div>
-
-                                  <div>
-                                    <div className="flex items-start gap-1 font-bold text-stone-700">
-                                      <span className="text-stone-400">✧</span>
-                                      <span>Project: Architectural and Interior Renovation of Huafang Dormitory at Taizhou Road (Government’s Approval Stage)</span>
-                                    </div>
-                                    <div className="pl-4 space-y-0.5 mt-0.5 text-stone-500">
-                                      <div>• Independently led concept design for new extensions and renovation of existing buildings.</div>
-                                      <div>• Prepared presentation materials for government approval, ensuring compliance with planning and regulatory requirements.</div>
-                                    </div>
-                                  </div>
-
-                                  <div>
-                                    <div className="flex items-start gap-1 font-bold text-stone-700">
-                                      <span className="text-stone-400">✧</span>
-                                      <span>Project: Niccolo Phuket Resort Architectural and Interior Design</span>
-                                    </div>
-                                    <div className="pl-4 space-y-0.5 mt-0.5 text-stone-500">
-                                      <div>• In charge of master planning and public area design for a luxury resort project.</div>
-                                      <div>• Coordinated with client team and hotel operator, translating brand standards into spatial solutions.</div>
-                                    </div>
-                                  </div>
-
-                                  <div>
-                                    <div className="flex items-start gap-1 font-bold text-stone-700">
-                                      <span className="text-stone-400">✧</span>
-                                      <span>Project: Tuwaiq Palace Hotel Expansion Competition, Saudi Arabia</span>
-                                    </div>
-                                    <div className="pl-4 space-y-0.5 mt-0.5 text-stone-500">
-                                      <div>• Contributed to the preliminary research, the concept brainstorm, 3D models of existing buildings, terrain study, massing study, elevation design, public space layout design and final graphic presentation.</div>
-                                    </div>
-                                  </div>
-
-                                  <div>
-                                    <div className="flex items-start gap-1 font-bold text-stone-700">
-                                      <span className="text-stone-400">✧</span>
-                                      <span>Other projects</span>
-                                    </div>
-                                    <div className="pl-4 text-stone-500">
-                                      Camerich Haus (built), Louis Vuitton Flagship Elevation Design Competition, Jeju villas.
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Job 4 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>06/2018 - 08/2018</span>
-                                  <span>New York, U.S.</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">OMA New York</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">Intern</div>
-                                <div className="space-y-1 mt-1 pl-4 text-[11px] text-stone-500">
-                                  <div className="flex items-start gap-1 font-bold text-stone-700">
-                                    <span className="text-stone-400 font-bold">✧</span>
-                                    <span>Project: Eagle+West Tower (built)</span>
-                                  </div>
-                                  <div className="pl-4">
-                                    • Contributed to massing study, facade study, Logo design, detail design, drawings, process models and the Schematic Design Phase final model.
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Job 5 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>09/2016</span>
-                                  <span>Fujian, China</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">Xiamen BIAD Architecture Design Co. Ltd</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">Intern</div>
-                                <div className="space-y-1 mt-1 pl-4 text-[11px] text-stone-500">
-                                  <div className="flex items-start gap-1 font-bold text-stone-700">
-                                    <span className="text-stone-400 font-bold">✧</span>
-                                    <span>Project: Urban Design of an Exhibition Park in Pingtan &amp; 2nd Phase of Xinyang Affordable Housing in Xiamen</span>
-                                  </div>
-                                  <div className="pl-4">
-                                    • Contributed to preliminary research, material collection, case studies, information analysis and diagram drawings.
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Job 6 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>10/2018 - 12/2018</span>
-                                  <span>Massachusetts, U.S.</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">Harvard Yenching Library</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">Student Assistant</div>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* COMPETITION & WORKSHOP & PUBLICATION */}
-                          <div>
-                            <h2 className="text-sm font-bold tracking-wider text-stone-800 border-b border-stone-200 pb-1 mb-4 uppercase">
-                              COMPETITION &amp; WORKSHOP &amp; PUBLICATION
-                            </h2>
-                            <div className="space-y-6">
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>02/2020 - 06/2020</span>
-                                  <span>Shanghai, China</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">Thresholds: Space, Time and Practice</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  <div className="font-bold text-stone-700">• The monograph of Neri&amp;Hu design and research office</div>
-                                  <div className="mt-0.5">Content production: redrew the drawings of Neri&amp;Hu's works from different periods.</div>
-                                </div>
-                              </div>
-
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>02/2019 - 04/2019</span>
-                                  <span>Massachusetts, U.S.</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">Space, Movement, and the Technological Body: A Tribute to the Bauhaus</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  <div className="font-bold text-stone-700">• Project: Sound Map, group work in 2</div>
-                                  <div className="mt-0.5 text-stone-500">
-                                    Participated in practice and rehearsal all semester and successfully finished the final performance at GSD, Harvard. The VR-based immersive Dance-Sound visualization system transforms Oskar Schlemmer's experimental Bauhaus dances into a novel three-dimensional interactive experience. Utilizing Kagura software, it arranged corresponding instrumental elements in the virtual space, captured human movement and gestures through camera lenses to trigger sounds, and employed Spectrum, a music visualizer, to convert audio into imagery for spatial projection. Through a semester of technical experimentation with tools like Arduino and TouchDesigner, the project culminated in a final performance at the Harvard Graduate School of Design's tribute to Bauhaus commemorative evening event.
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>08/2016</span>
-                                  <span>Fujian, China</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900 font-sans">UIA-HYP Cup 2016 International Student Competition in Architectural Design</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  <div className="font-bold text-stone-700">• Project: Who Am I, group work in 4</div>
-                                  <div className="mt-0.5 text-stone-500">Took part in the whole competition process and contributed to the translation work.</div>
-                                </div>
-                              </div>
-
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>07/2015 - 08/2015</span>
-                                  <span>Fujian, China</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">Koolangsu Four-university Joint Workshop</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 text-stone-500">
-                                  Participated in the mapping of Longtou Road, its façade renovation for the World Heritage Application of the Koolangsu island, historic architecture survey and the mapping of the Koolangsu island.
-                                </div>
-                              </div>
-
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>07/2014 - 12/2015</span>
-                                  <span>Fujian, China</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900 font-sans">National Training Program of Innovation and Entrepreneurship for College Students</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  <div className="font-bold text-stone-700">• Project: Study on Sustainable Development of Xiamen Old Town Style Buildings, group work in three</div>
-                                  <div className="mt-0.5 text-stone-500">Participated in the preliminary investigation of the current site situation and research about historical information of Yingping Old Town in Xiamen. Contributed to the analysis, proposals and the final presentation.</div>
-                                </div>
-                              </div>
-
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>04/2014</span>
-                                  <span>Fujian, China</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs text-stone-900">The First Cross-Strait Design Build Competition—City of Light</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  <div className="font-bold text-stone-700">• Project: House of Cards</div>
-                                  <div className="mt-0.5 text-stone-500">Excellent Work Prize, group work in eight</div>
+                              {/* Item 4 */}
+                              <div className="flex items-start gap-3">
+                                <div className="w-2.5 h-2.5 bg-orange-500 rounded-xs mt-1.5 shrink-0" />
+                                <div>
+                                  <h4 className="text-xs sm:text-sm font-bold text-stone-900">厦门大学嘉庚学院</h4>
+                                  <p className="text-xs text-stone-500 mt-0.5 font-mono">建筑学教师</p>
                                 </div>
                               </div>
                             </div>
                           </div>
 
-                          {/* HONOR */}
-                          <div>
-                            <h2 className="text-sm font-bold tracking-wider text-stone-800 border-b border-stone-200 pb-1 mb-4 uppercase">
-                              HONOR
-                            </h2>
-                            <ul className="space-y-3 text-[11px] text-stone-600 font-sans">
-                              <li className="flex justify-between items-baseline gap-4">
-                                <div className="flex items-start gap-2">
-                                  <span className="w-1 h-1 rounded-full bg-stone-400 mt-[5.5px] shrink-0" />
-                                  <span>
-                                    <span className="font-bold text-stone-900">2016</span> — School Merit Award, in recognition of comprehensive performance
-                                  </span>
-                                </div>
-                                <span className="text-xs font-bold text-stone-900 shrink-0 text-right">Fujian, China</span>
-                              </li>
-                              <li className="flex justify-between items-baseline gap-4">
-                                <div className="flex items-start gap-2">
-                                  <span className="w-1 h-1 rounded-full bg-stone-400 mt-[5.5px] shrink-0" />
-                                  <span>
-                                    <span className="font-bold text-stone-900">2013-2015</span> — First Prize of Merit Academic Scholarship for THREE years
-                                  </span>
-                                </div>
-                              </li>
-                              <li className="flex justify-between items-baseline gap-4">
-                                <div className="flex items-start gap-2">
-                                  <span className="w-1 h-1 rounded-full bg-stone-400 mt-[5.5px] shrink-0" />
-                                  <span>
-                                    <span className="font-bold text-stone-900">2014-2015</span> — Merit Student of Architecture School for TWO years
-                                  </span>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-
-                          {/* SKILLS */}
-                          <div>
-                            <h2 className="text-sm font-bold tracking-wider text-stone-800 border-b border-stone-200 pb-1 mb-4 uppercase">
-                              SKILLS
-                            </h2>
-                            <div className="space-y-3 text-xs text-stone-700 pl-2">
-                              <div>
-                                <span className="font-bold text-stone-900">Language:</span> Chinese, English
+                          {/* Right Column: Practice Focus */}
+                          <div className="md:border-l md:border-stone-200 md:pl-8 space-y-4">
+                            <h3 className="text-[10px] sm:text-xs font-mono font-bold tracking-wider text-stone-400 uppercase">
+                              PRACTICE FOCUS <span className="text-stone-300">//</span> 实践方向
+                            </h3>
+                            <div className="space-y-4">
+                              {/* Item 1 */}
+                              <div className="flex items-start gap-3">
+                                <div className="w-3 h-3 border border-stone-400 rounded-xs mt-1 shrink-0 flex items-center justify-center bg-transparent" />
+                                <p className="text-xs sm:text-sm text-stone-700 font-medium">
+                                  建筑与室内设计（文化、剧场、商业、酒店）
+                                </p>
                               </div>
-                              <div className="leading-relaxed">
-                                <span className="font-bold text-stone-900">Software:</span> Microsoft Office/ AutoCAD/ Sketchup/ Rhino/ Grasshopper/ Photoshop/ Lightroom/ InDesign/ Illustrator/ Enscape/ Vray/ Revit/ TouchDesigner/ Twinmotion/ AIGC/ AI coding tools/ Figma
+                              {/* Item 2 */}
+                              <div className="flex items-start gap-3">
+                                <div className="w-3 h-3 border border-stone-400 rounded-xs mt-1 shrink-0 flex items-center justify-center bg-transparent" />
+                                <p className="text-xs sm:text-sm text-stone-700 font-medium">
+                                  空间概念与叙事 / Spatial Narrative
+                                </p>
                               </div>
-                              <div>
-                                <span className="font-bold text-[#10b981]">Certificate:</span> Teacher Qualification of Higher Education Institutions of the People's Republic of China
+                              {/* Item 3 */}
+                              <div className="flex items-start gap-3">
+                                <div className="w-3 h-3 border border-stone-400 rounded-xs mt-1 shrink-0 flex items-center justify-center bg-transparent" />
+                                <p className="text-xs sm:text-sm text-stone-700 font-medium">
+                                  建成项目与落地协调 / Execution Coordinations
+                                </p>
+                              </div>
+                              {/* Item 4 */}
+                              <div className="flex items-start gap-3">
+                                <div className="w-3 h-3 border border-stone-400 rounded-xs mt-1 shrink-0 flex items-center justify-center bg-transparent" />
+                                <p className="text-xs sm:text-sm text-stone-700 font-medium">
+                                  数字媒介与实验性创作 / Digital Media
+                                </p>
+                              </div>
+                              {/* Item 5 */}
+                              <div className="flex items-start gap-3">
+                                <div className="w-3 h-3 border border-stone-400 rounded-xs mt-1 shrink-0 flex items-center justify-center bg-transparent" />
+                                <p className="text-xs sm:text-sm text-stone-700 font-medium">
+                                  教学与设计研究 / Design Research
+                                </p>
                               </div>
                             </div>
                           </div>
                         </div>
-                      ) : (
-                        /* CHINESE RESUME (Pages 1, 2, 3) */
-                        <div className="space-y-8 text-stone-900 font-sans">
-                          {/* Header */}
-                          <div className="text-center pb-4 border-b border-stone-300">
-                            <h1 className="text-3xl font-extrabold tracking-wide text-stone-900 font-serif">毕静怡</h1>
-                            <p className="text-[11px] text-stone-500 mt-2 font-mono">
-                              电子邮箱: jingyib0918@163.com &nbsp;|&nbsp; 手机: +86 18850571159 &nbsp;|&nbsp; 生日: 1993 年 9 月 18 日
-                            </p>
-                          </div>
 
-                          {/* 教育背景 */}
-                          <div>
-                            <h2 className="text-sm font-bold tracking-wider text-stone-800 border-b border-stone-200 pb-1 mb-4 uppercase">
-                              教育背景
-                            </h2>
-                            <div className="space-y-6">
-                              {/* Edu item 1 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>08/2017 - 05/2019</span>
-                                  <span>麻省，美国</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs">哈佛大学设计学院</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">建筑学硕士 (M.Arch II)</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  部分前沿技术课程：数字媒体 II, 运动与意义的交织：建筑师、空间感知与身体技术, 近似绘画。
-                                </div>
-                              </div>
-
-                              {/* Edu item 2 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>09/2018 - 01/2019</span>
-                                  <span>麻省，美国</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs font-sans">麻省理工学院</div>
-                                <div className="text-stone-600 text-xs mt-0.5">校选课</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  选修课程：形状语法导论
-                                </div>
-                              </div>
-
-                              {/* Edu item 3 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>09/2012 - 06/2017</span>
-                                  <span>福建，中国</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs animate-none">华侨大学建筑学院</div>
-                                <div className="text-stone-600 text-xs mt-0.5">建筑学学士，GPA: 3.58 / 4.0 ｜ 专业排名: 2 / 98</div>
-                              </div>
-
-                              {/* Edu item 4 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>03/2015 - 07/2015</span>
-                                  <span>台湾，中国</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs">台湾中原大学</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">交换生项目，GPA: 3.96 / 4.0</div>
+                        {/* Horizontal divider */}
+                        <div className="border-t border-stone-200 pt-6">
+                          <h3 className="text-[10px] sm:text-xs font-mono font-bold tracking-wider text-stone-400 uppercase mb-4">
+                            TECHNICAL CAPABILITIES <span className="text-stone-300">//</span> 技能清单
+                          </h3>
+                          
+                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {/* Modeling */}
+                            <div className="space-y-2">
+                              <h4 className="text-xs font-bold text-orange-600 uppercase border-b border-stone-200 pb-1">
+                                设计与建模 // MODELING
+                              </h4>
+                              <div className="text-xs text-stone-600 space-y-1 font-sans">
+                                <p>AutoCAD · Rhino · Grasshopper</p>
+                                <p>SketchUp · Revit</p>
                               </div>
                             </div>
-                          </div>
 
-                          {/* 工作 & 实习 */}
-                          <div>
-                            <h2 className="text-sm font-bold tracking-wider text-stone-800 border-b border-stone-200 pb-1 mb-4 uppercase">
-                              工作 &amp; 实习
-                            </h2>
-                            <div className="space-y-6">
-                              {/* Job 1 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>08/2023 - 01/2026</span>
-                                  <span>福建，中国</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs">厦门大学嘉庚学院</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">建筑学专任教师 ｜ 大一设计课教研组组长</div>
-                                <div className="text-[11px] text-stone-500 mt-1 leading-normal flex items-start gap-1">
-                                  <span className="text-[#10b981] font-bold">✧</span>
-                                  <span>开设课程: 基础建筑设计 I/II，外国古代建筑史， 建筑影像实验， 建筑经济管理， 建筑学专业英语， 居住建筑设计原理，城市设计专题，建筑旅游（公共选修课）</span>
-                                </div>
-                              </div>
-
-                              {/* Job 2 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>03/2023 - 05/2023</span>
-                                  <span>上海，中国</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs">AIM 恺慕建筑设计事务所</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">设计师</div>
-                                <div className="space-y-1 mt-1 pl-4 text-[11px] text-stone-500">
-                                  <div className="flex items-start gap-1 font-bold text-stone-700">
-                                    <span className="text-stone-400 font-bold">✧</span>
-                                    <span>项目：深圳湾华润文化广场室内设计</span>
-                                  </div>
-                                  <div className="pl-4 text-stone-500">
-                                    参与商业综合体中城市校园与零售空间的概念设计。
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Job 3 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>11/2019 - 04/2022</span>
-                                  <span>上海，中国</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs">如恩设计研究室</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">设计师</div>
-                                
-                                <div className="space-y-3 mt-2 text-[11px] text-stone-500">
-                                  <div>
-                                    <div className="flex items-start gap-1 font-bold text-stone-700">
-                                      <span className="text-stone-400">✧</span>
-                                      <span>项目：前滩 31 号文演中心室内设计 (建成）</span>
-                                    </div>
-                                    <div className="pl-4 space-y-0.5 mt-0.5 text-stone-500">
-                                      <div>• 参与了 A 厅和 B 厅（黑匣子剧场）的方案设计及扩初设计。</div>
-                                      <div>• 担任客户、当地设计院及多专业顾问（结构、机电、剧场）之间的设计协调人。</div>
-                                      <div>• 参与每周的协调会议、技术评审及设计对齐工作。</div>
-                                      <div>• 定期进行现场检查，确保施工过程中设计意图得以落实。</div>
-                                    </div>
-                                  </div>
-
-                                  <div>
-                                    <div className="flex items-start gap-1 font-bold text-stone-700">
-                                      <span className="text-stone-400">✧</span>
-                                      <span>项目：尼依格罗普吉岛度假村</span>
-                                    </div>
-                                    <div className="pl-4 space-y-0.5 mt-0.5 text-stone-500">
-                                      <div>• 负责某豪华度假区项目的总体规划和公共区域设计。</div>
-                                      <div>• 与客户团队及酒店管理方协调合作，将品牌标准转化为空间解决方案。</div>
-                                    </div>
-                                  </div>
-
-                                  <div>
-                                    <div className="flex items-start gap-1 font-bold text-stone-700">
-                                      <span className="text-stone-400">✧</span>
-                                      <span>项目：泰州路华纺小区更新改造 （政府报批）</span>
-                                    </div>
-                                    <div className="pl-4 space-y-0.5 mt-0.5 text-stone-500">
-                                      <div>• 独立主导了新建扩建部分及现有建筑改造的概念设计。</div>
-                                      <div>• 准备用于政府审批的汇报文本，确保符合规划及法规要求。</div>
-                                    </div>
-                                  </div>
-
-                                  <div>
-                                    <div className="flex items-start gap-1 font-bold text-stone-700">
-                                      <span className="text-stone-400">✧</span>
-                                      <span>项目: 沙特阿拉伯 Tuwaiq 宫酒店扩建竞赛</span>
-                                    </div>
-                                    <div className="pl-4 space-y-0.5 mt-0.5 text-stone-500">
-                                      <div>• 负责前期调研、概念头脑风暴 、现状模型建模、场地地形研究、体块推敲、立面设计、公共区域平面设计以及最终汇报文本。</div>
-                                    </div>
-                                  </div>
-
-                                  <div>
-                                    <div className="flex items-start gap-1 font-bold text-stone-700">
-                                      <span className="text-stone-400">✧</span>
-                                      <span>其它参与项目</span>
-                                    </div>
-                                    <div className="pl-4 text-stone-500">
-                                      锐驰北京驿站（建成）、LV 太古汇旗舰店立面竞赛、韩国济州岛别墅区
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Job 4 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>06/2018 - 08/2018</span>
-                                  <span>纽约，美国</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs font-sans">OMA 大都会事务所</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">实习生</div>
-                                <div className="space-y-1 mt-1 pl-4 text-[11px] text-stone-500">
-                                  <div className="flex items-start gap-1 font-bold text-stone-700">
-                                    <span className="text-stone-400 font-bold">✧</span>
-                                    <span>项目: Eagle+West 大厦（建成）</span>
-                                  </div>
-                                  <div className="pl-4 text-stone-500">
-                                    参与方案体块推敲，立面设计，项目 Logo 设计，细部设计，负责过程推敲模型以及 Schematic Design Phase 的最终实体模型。
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Job 5 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>09/2016</span>
-                                  <span>福建，中国</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs font-sans">厦门佰地建筑设计有限公司</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">实习生</div>
-                                <div className="space-y-1 mt-1 pl-4 text-[11px] text-stone-500">
-                                  <div className="flex items-start gap-1 font-bold text-stone-700">
-                                    <span className="text-stone-400 font-bold">✧</span>
-                                    <span>项目: 平潭会展公园城市设计 &amp; 厦门新阳经济适用房 2 期</span>
-                                  </div>
-                                  <div className="pl-4 text-stone-500">
-                                    参与前期分析，资料收集，案例分析。
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Job 6 */}
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>10/2018 - 12/2018</span>
-                                  <span>麻省，美国</span>
-                                </div>
-                                <div className="mt-1 font-bold text-xs font-sans">哈佛燕京图书馆</div>
-                                <div className="text-stone-600 text-xs mt-0.5 font-serif italic">学生助理</div>
+                            {/* Vis */}
+                            <div className="space-y-2">
+                              <h4 className="text-xs font-bold text-orange-600 uppercase border-b border-stone-200 pb-1">
+                                视觉与表达 // VIS
+                              </h4>
+                              <div className="text-xs text-stone-600 space-y-1 font-sans">
+                                <p>Figma · Photoshop · Illustrator · InDesign</p>
+                                <p>Lightroom</p>
+                                <p>Enscape · V-Ray · Twinmotion</p>
                               </div>
                             </div>
-                          </div>
 
-                          {/* 竞赛 & 工作坊 & 出版物 */}
-                          <div>
-                            <h2 className="text-sm font-bold tracking-wider text-stone-800 border-b border-stone-200 pb-1 mb-4 uppercase">
-                              竞赛 &amp; 工作坊 &amp; 出版物
-                            </h2>
-                            <div className="space-y-6">
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>02/2020 - 06/2020</span>
-                                  <span>上海，中国</span>
-                                </div>
-                                <div className="mt-1 font-extrabold text-xs">《间：空间、时间与实践》</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  <div className="font-bold text-stone-700">• 如恩设计研究室作品集</div>
-                                  <div className="mt-0.5 text-stone-500">内容绘制、排版：重新绘制如恩不同时期的作品的图纸。</div>
-                                </div>
-                              </div>
-
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>02/2019 - 04/2019</span>
-                                  <span>麻省，美国</span>
-                                </div>
-                                <div className="mt-1 font-extrabold text-xs">空间，运动，以及技术性身体：致敬包豪斯</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  <div className="font-bold text-stone-700">• 项目：Sound Map, 两人团队</div>
-                                  <div className="mt-0.5 text-stone-500">
-                                    基于 VR 的沉浸式“舞蹈-声音”可视化系统，将包豪斯 Oscar Schlemmer 的实验性舞蹈转换为全新的三维交互体验。利用 Kagura 软件，在虚拟空间中布置相应的乐器元素，通过相机镜头捕捉人体运动和手势触发声音，并利用 Spectrum - Music Visualizer 软件将声音转换为图像，并实现空间投影。通过一学期的技术性实验，如 Arduino, TouchDesigner 等工具的尝试，实现在哈佛大学设计学院包豪斯 100 周年纪念晚会的最终表演。
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>08/2016</span>
-                                  <span>福建，中国</span>
-                                </div>
-                                <div className="mt-1 font-extrabold text-xs">2016 年霍普杯国际大学生建筑设计竞赛</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  <div className="font-bold text-stone-700">• 项目：Who Am I，4 人小组合作</div>
-                                  <div className="mt-0.5 text-stone-500">全程参与竞赛流程，并负责部分翻译工作。</div>
-                                </div>
-                              </div>
-
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>07/2015 - 08/2015</span>
-                                  <span>福建，中国</span>
-                                </div>
-                                <div className="mt-1 font-extrabold text-xs font-sans">鼓浪屿申遗四校工作坊</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 text-stone-500">
-                                  参与龙头路测绘以及立面更新设计，助力鼓浪屿申请世界文化遗产。
-                                </div>
-                              </div>
-
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>07/2014 - 12/2015</span>
-                                  <span>福建，中国</span>
-                                </div>
-                                <div className="mt-1 font-extrabold text-xs">国家级大学生创新创业训练计划</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  <div className="font-bold text-stone-700">• 项目研究：厦门旧城区风貌建筑可持续发展研究， 三人团队</div>
-                                  <div className="mt-0.5 text-stone-500 font-medium">参与厦门市营平老城现状的初步调研及历史资料研究，协助完成分析、方案制定及最终汇报展示。</div>
-                                </div>
-                              </div>
-
-                              <div>
-                                <div className="flex justify-between text-xs font-bold text-stone-900">
-                                  <span>04/2014</span>
-                                  <span>福建，中国</span>
-                                </div>
-                                <div className="mt-1 font-extrabold text-xs">首届海峡两岸光明之城实体建构竞赛</div>
-                                <div className="text-[11px] text-stone-500 mt-1 pl-4 leading-normal">
-                                  <div className="font-bold text-stone-700">• 项目：纸牌屋；</div>
-                                  <div className="mt-0.5 text-stone-500">佳作奖，八人团队</div>
-                                </div>
+                            {/* Interactive */}
+                            <div className="space-y-2">
+                              <h4 className="text-xs font-bold text-orange-600 uppercase border-b border-stone-200 pb-1">
+                                数字与新媒介 // INTERACTIVE
+                              </h4>
+                              <div className="text-xs text-stone-600 space-y-1 font-sans leading-relaxed">
+                                <p>Touchdesigner · AIGC(Midjourney, Nano Banana, Runway, Pika......) · AI coding tool(ChatGPT, Gemini, Coze, Codex......)</p>
                               </div>
                             </div>
-                          </div>
 
-                          {/* 荣誉 */}
-                          <div>
-                            <h2 className="text-sm font-bold tracking-wider text-stone-800 border-b border-stone-200 pb-1 mb-4 uppercase">
-                              荣誉
-                            </h2>
-                            <ul className="space-y-3 text-[11px] text-stone-600 font-sans">
-                              <li className="flex justify-between items-baseline gap-4">
-                                <div className="flex items-start gap-2">
-                                  <span className="w-1 h-1 rounded-full bg-stone-400 mt-[5.5px] shrink-0" />
-                                  <span>
-                                    <span className="font-bold text-stone-900">2016</span> — 华侨大学理工科综合成绩优秀学生
-                                  </span>
-                                </div>
-                                <span className="text-xs font-bold text-stone-900 shrink-0 text-right">福建，中国</span>
-                              </li>
-                              <li className="flex justify-between items-baseline gap-4">
-                                <div className="flex items-start gap-2">
-                                  <span className="w-1 h-1 rounded-full bg-stone-400 mt-[5.5px] shrink-0" />
-                                  <span>
-                                    <span className="font-bold text-stone-900">2013-2015</span> — 连续三年获得华侨大学校一等奖学金
-                                  </span>
-                                </div>
-                              </li>
-                              <li className="flex justify-between items-baseline gap-4">
-                                <div className="flex items-start gap-2">
-                                  <span className="w-1 h-1 rounded-full bg-stone-400 mt-[5.5px] shrink-0" />
-                                  <span>
-                                    <span className="font-bold text-stone-900">2014-2015</span> — 连续两年获得华侨大学建筑学院优秀学生
-                                  </span>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-
-                          {/* 技能与证书 */}
-                          <div>
-                            <h2 className="text-sm font-bold tracking-wider text-stone-800 border-b border-stone-200 pb-1 mb-4 uppercase">
-                              技能与证书
-                            </h2>
-                            <div className="space-y-3 text-xs text-stone-700 pl-2">
-                              <div>
-                                <span className="font-bold text-stone-900">语言：</span> 中文，英文
-                              </div>
-                              <div className="leading-relaxed">
-                                <span className="font-bold text-stone-900">软件：</span> Microsoft Office/ AutoCAD/ Sketchup/ Rhino/ Grasshopper/ Photoshop/ Lightroom/ InDesign/ Illustrator/ Enscape/ Vray/ Revit/ TouchDesigner/ Twinmotion/ AIGC/ AI coding tools/ Figma
-                              </div>
-                              <div>
-                                <span className="font-bold text-[#10b981]">证书：</span> 中华人民共和国高等学校教师资格
+                            {/* Languages */}
+                            <div className="space-y-2">
+                              <h4 className="text-xs font-bold text-orange-600 uppercase border-b border-stone-200 pb-1">
+                                语言 // LANGUAGES
+                              </h4>
+                              <div className="text-xs text-stone-600 space-y-1 font-sans">
+                                <p>中文 (Chinese) · English (English)</p>
                               </div>
                             </div>
                           </div>
                         </div>
-                      )}
+                      </div>
                     </div>
                   </motion.div>
                 ) : (
